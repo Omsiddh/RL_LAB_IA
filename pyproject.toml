@@ -1,0 +1,11 @@
+[project]
+name = "rl-lab-ia"
+version = "0.1.0"
+description = "Preemptive CPU scheduling simulator and fixed-size RL observation adapter"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.24"]
+
+[tool.pytest.ini_options]
+testpaths = ["src/env/tests"]
+pythonpath = ["."]
