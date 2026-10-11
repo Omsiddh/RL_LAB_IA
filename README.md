@@ -402,3 +402,152 @@ A 20-episode smoke run usually ends before the 1000-transition warm-up, so zero
 optimizer updates and an empty loss curve are expected. A 500-episode diagnostic
 also covers only an early portion of the 100000-step epsilon schedule; it is a
 pipeline/learning diagnostic, not evidence of convergence or baseline superiority.
+
+## Stage 6.1: traditional scheduling baselines
+
+`src/baselines/` implements FCFS, SRTF, and FIFO Round Robin using the existing
+`CPUSchedulingEnv`. Every CPU time unit executes through `env.step(action)`;
+the simulator owns timing, idle jumps, rewards, completion, switch/preemption
+counts, and per-process metrics. The shared runner passes each policy only
+arrived, unfinished simulator process objects, keyed by original workload index.
+Policies receive neither the full workload nor future process records.
+
+```python
+from src.baselines import run_fcfs, run_srtf, run_round_robin
+
+workload = (("P1", 0, 5), ("P2", 1, 2), ("P3", 3, 1))
+fcfs = run_fcfs(workload)
+srtf = run_srtf(workload)
+rr = run_round_robin(workload, quantum=2)
+print(rr["mean_waiting_time"])  # 7 / 3
+```
+
+Every call resets a clean simulator episode and leaves the input workload
+unchanged. An optional `env=` permits reuse or inspection of an existing
+simulator, which is reset before replay. All three functions return the same
+dictionary fields:
+
+| Field | Meaning |
+| --- | --- |
+| `algorithm` | FCFS, SRTF, or Round Robin |
+| `timeline` | Tuple of simulator `(start, end, index, pid)` entries; idle entries have `index=pid=None` |
+| `processes` | Simulator metrics keyed by PID: first start, completion, waiting, turnaround, response |
+| `mean_waiting_time`, `mean_turnaround_time`, `mean_response_time` | Arithmetic means across processes, in CPU time units |
+| `context_switches`, `preemptions` | Simulator counts, with no execution-time overhead |
+| `total_reward` | Simulator reward; equals negative total process waiting time |
+| `total_time`, `idle_time` | Final simulated time from zero, and total idle time |
+
+The timeline preserves individual one-unit execution steps, plus simulator idle
+intervals. Consecutive execution steps are combined below only for readability.
+Returned metrics and timeline remain independent of later simulator resets.
+Empty workloads return an empty timeline/metrics and zero means and counters.
+
+- FCFS runs each selected process to completion. It chooses the earliest arrival,
+  breaking ties by original workload index.
+- SRTF reconsiders remaining time after every CPU unit. It continues the current
+  process when tied for shortest; otherwise arrival time and original index break ties.
+- Round Robin uses a FIFO queue and defaults to a two-unit quantum. Arrivals
+  observed during each slice enter chronologically, with index ties. At expiry,
+  new arrivals enter before the unfinished running process is requeued; existing
+  waiters retain their position. Completion starts the next process with a fresh
+  quantum. A sole ready process continues without a simulator context switch.
+  Quantum must be a positive Python integer; Boolean/fractional values are rejected.
+
+Manual workload schedules:
+
+| Policy | Schedule | Mean waiting | Mean turnaround | Mean response | Switches | Preemptions | Reward |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| FCFS | P1 [0,5), P2 [5,7), P3 [7,8) | 8/3 | 16/3 | 8/3 | 2 | 0 | -8 |
+| SRTF | P1 [0,1), P2 [1,3), P3 [3,4), P1 [4,8) | 1 | 11/3 | 0 | 3 | 1 | -3 |
+| RR, q=2 | P1 [0,2), P2 [2,4), P1 [4,6), P3 [6,7), P1 [7,8) | 7/3 | 5 | 4/3 | 4 | 2 | -7 |
+
+All three finish at time 8. Times are integer and intervals exclude their end.
+These policies assume the simulator's single CPU, known bursts after arrival,
+zero switching overhead, and no I/O blocking. SRTF minimizes average waiting
+under these assumptions; it does not necessarily minimize response time or
+switch count. The baseline package has no six-process adapter restriction.
+
+`tests/test_baselines.py` checks the manual examples, ties, idle periods,
+preemptions, quantum and queue behavior, completion, accounting, immutability,
+repeatability, clean resets, and the shared result schema. It also uses 100
+fresh synthetic unit-test workloads to check SRTF against FCFS and Round Robin
+at quanta 1, 2, 5, and 20. It does not read reserved final test workloads.
+Run the complete suite with `.\.venv\Scripts\python.exe -m pytest -q`.
+
+Stage 6.1 adds no DQN comparison, convergence analysis, new training experiment,
+hyperparameter tuning, final test evaluation, or final visualizations.
+
+## Stage 6.2: initial validation benchmark and optimality gap
+
+`src/benchmark/` evaluates the saved episode-5250 DQN best checkpoint against
+FCFS, SRTF, and Round Robin (quantum 2). It reconstructs the **same** Phase 5
+validation collection through `Validator`, using the saved configuration and
+seed 1729. Reconstruction must yield exactly **128 workloads / 645 processes**.
+It preserves input order, process indices, and the immutable definitions; there
+is no new validation collection, slot permutation, or reserved test-set access.
+
+```powershell
+.\.venv\Scripts\python.exe -m src.benchmark.run --training-dir runs/phase5_full_6000 --output-dir runs/stage6_2_benchmark
+```
+
+Choose a fresh output directory; an existing directory is never overwritten.
+The modules are `evaluation.py` (greedy replay and invariants), `analysis.py`
+(paired gaps, aggregates, and slot diagnostics), `plots.py` (comparison charts),
+and `run.py` (checkpoint/configuration verification, CLI, and export).
+`tests/test_benchmark.py` covers isolation, determinism, workload identity,
+weight preservation, means, reward consistency, optimality, exports, and charts.
+
+The benchmark uses epsilon zero, evaluation mode, disabled gradients, and a
+dedicated temporary action RNG. It restores the original mode/RNG and checks
+both networks, optimizer counters, and replay state. It does not train or call
+the optimizer. Baselines use their unchanged Stage 6.1 functions. All four
+policies execute through the existing simulator or adapter.
+
+Timing means divide summed per-process times by the number of processes;
+switch/preemption means divide totals by workload count. Each workload checks
+that SRTF waiting is no greater than any other policy, reward equals negative
+total waiting, and CPU bursts/indices are preserved. DQN aggregate waiting,
+turnaround, and mean reward must match both the checkpoint sidecar and the
+episode-5250 validation CSV row. A full repeated replay of the same collection
+must produce identical results and decision records. Protected source and
+Phase 5 input files are checked by SHA-256 before and after benchmarking.
+
+Required outputs:
+
+- `baseline_comparison.csv`: four policy rows with process-weighted timing means,
+  total times/reward, mean workload reward, and mean switches/preemptions.
+- `per_workload_comparison.csv`: 128 paired rows with all four policies' metrics
+  and DQN minus SRTF absolute/percentage waiting gaps.
+- `per_process_results.csv`: 2580 rows with policy, zero-based workload ID,
+  original process index, PID, arrival/burst, and simulator process metrics.
+- `benchmark_summary.json`: aggregates, results by process count, optimality-gap
+  statistics, best/worst examples and timelines, slot diagnostics, provenance,
+  checks, and limitations.
+- `waiting_time_comparison.png`, `turnaround_time_comparison.png`,
+  `response_time_comparison.png`, `context_switches_comparison.png`, and
+  `preemptions_comparison.png`.
+
+Supporting exports are `by_process_count.csv` (all metrics for 4/5/6 processes),
+`slot_bias.csv` (overall and stratified counts), `dqn_decision_diagnostics.csv`
+(one row per ready process per DQN decision), and `validation_workloads.json`
+(the exact reconstructed definitions in original order). Workload IDs start at
+zero, matching the order in `Validator.workloads`.
+
+The aggregate percentage gap is
+`100 * (DQN total waiting - SRTF total waiting) / SRTF total waiting`.
+Per-workload percentage gaps use the corresponding workload totals; when SRTF
+waiting is zero, the percentage is zero if DQN also waits zero, otherwise null.
+The process-weighted aggregate gap differs from an unweighted average of
+per-workload mean gaps when process counts vary.
+
+Slot analysis measures choices when a ready process is uniquely shortest,
+excluding single-ready states, and choices among exactly equal six-feature
+slot observations. Raw ready/selection rates are also recorded, stratified by
+process count. These are observational, dependent decision counts with unequal
+workload/feature distributions; they are not a causal slot effect or a formal
+significance test. No alternative slot assignment is used.
+
+These results use data previously used for model selection, so they are an
+initial validation benchmark rather than an unbiased final test. Stage 6.2
+does not tune hyperparameters, train a new model, implement Stage 6.3, or access
+the reserved final workloads.
