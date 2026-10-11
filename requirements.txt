@@ -1,3 +1,4 @@
-# NumPy is used by the Phase 3 observation adapter.
+# NumPy: observations/replay; PyTorch: DQN; pytest: tests.
 numpy>=1.24
+torch>=2.2
 pytest>=8

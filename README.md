@@ -1,9 +1,9 @@
-# Adaptive Preemptive CPU Scheduling - Phases 2 and 3
+# Adaptive Preemptive CPU Scheduling - Phases 2, 3 and 4
 
 A single-core simulator with one-unit scheduling decisions, no I/O blocking,
 and zero context-switch overhead. Runtime dependencies are standard-library
 only for the simulator; the Phase 3 adapter uses NumPy. Pytest is needed for
-tests. Requires Python 3.11 or newer.
+tests. The Phase 4 DQN components use PyTorch. Requires Python 3.11 or newer.
 
 - `src/env/environment.py`: ordinary `Process` and `CPUSchedulingEnv` classes,
   immutable workload tuples, dictionary states, execution/idle timeline,
@@ -13,7 +13,7 @@ tests. Requires Python 3.11 or newer.
   configurable. Explicit workloads can use other counts and bounds.
 - `src/env/tests/test_environment.py`: deterministic examples, input/reset
   isolation, workload reproducibility, and reward/timing accounting checks.
-- `requirements.txt`: NumPy and pytest; `pyproject.toml` configures test discovery.
+- `requirements.txt`: NumPy, PyTorch and pytest; `pyproject.toml` configures test discovery.
 - `src/env/__init__.py`: exposes the environment, process models and generator.
 
 From the repository root:
@@ -89,7 +89,8 @@ times remain `None` until completion, and response time until first execution.
 Default state snapshots hide burst and remaining times for future arrivals.
 `env.get_state(debug=True)` and internal runtime records expose complete data
 for debugging. The Phase 3 adapter below provides numerical RL observations.
-DQN, baseline policies, training and visualization are deferred to future phases.
+The Phase 4 section adds DQN components. Full training, baseline policies and
+visualization are deferred to future phases.
 
 ## How to explain the code
 
@@ -187,3 +188,78 @@ after idle for context-switch counting. Rewards are forwarded unchanged.
 
 No DQN, neural network, replay buffer, baseline policy, training or
 visualization is implemented in Phase 3.
+
+## Phase 4: DQN components
+
+- `src/agent/network.py`: `QNetwork`, with fully connected layers
+  39 -> 64 -> 64 -> 6, ReLU between hidden layers and raw Q-value outputs.
+  It accepts one observation or a batch. Masks do not modify network outputs.
+- `src/agent/replay_buffer.py`: `ReplayBuffer`, a fixed-capacity FIFO buffer.
+  It copies input arrays and returns independent sampled batches. A local
+  seeded random generator samples without replacement.
+- `src/agent/dqn_agent.py`: `DQNAgent`, providing masked epsilon-greedy
+  actions, replay insertion, single optimizer updates, target synchronization,
+  and checkpoint save/load.
+- `src/agent/__init__.py`: exposes these three components for importing.
+- `tests/test_dqn_agent.py`: controlled unit tests and one untrained-agent
+  scheduling smoke test. Test discovery includes both this directory and the
+  original environment tests.
+
+```python
+from src.agent import DQNAgent
+from src.env.rl_adapter import RLAdapter
+
+adapter = RLAdapter()
+agent = DQNAgent(seed=42)
+state = adapter.reset((("P1", 0, 2), ("P2", 1, 1)))
+action = agent.select_action(state, adapter.valid_action_mask(), epsilon=1.0)
+next_state, reward, done, info = adapter.step(action)
+agent.remember(state, action, reward, next_state, done, info["action_mask"])
+result = agent.optimize_step()  # None until at least batch_size entries exist.
+```
+
+This example shows one interaction, not an episode training loop. The agent
+receives only observations, masks, actions, rewards and completion flags. It
+does not inspect simulator-private process data or modify rewards.
+
+Defaults are learning rate 0.0005, gamma 1.0, batch size 64, replay capacity
+20000, target synchronization every 250 successful optimizer steps, and
+gradient clipping at norm 10. Configure them with `learning_rate`, `gamma`,
+`batch_size`, `replay_capacity`, `target_sync_interval`, and
+`max_gradient_norm`. Adam and Smooth L1 (Huber) loss are used. Computation
+defaults to `device="cpu"`; `device="cuda"` requires an available CUDA device
+and a compatible PyTorch installation. CUDA requests fail explicitly when
+unavailable. Seeds reproduce CPU initialization, exploration and replay
+sampling; identical results across different hardware are not guaranteed.
+
+`select_action(observation, action_mask, epsilon)` returns an ordinary Python
+index. Epsilon 0 chooses the highest-Q valid action, and epsilon 1 samples
+uniformly among valid actions. Empty masks and malformed inputs are rejected.
+`remember(state, action, reward, next_state, done, next_action_mask)` stores
+a transition. Non-terminal next states must have a nonempty valid-action mask.
+
+`optimize_step()` computes the selected policy Q-values and targets
+`reward + gamma * max_valid_target_Q`. Terminal future values are zero; their
+empty masks never enter the maximum. Targets have no gradients, and only
+policy parameters belong to the optimizer. The target starts as a copy of the
+policy and is frozen. `optimizer_steps` counts successful optimizer updates,
+independently of environment steps. Successful calls return loss, gradient norm
+before clipping, and the update count. `sync_target_network()` also allows an
+explicit copy of policy weights to the target.
+
+`agent.save("agent.pt")` saves both networks, optimizer state, configuration,
+optimizer update count and action/replay RNG states. `agent.load("agent.pt")`
+restores them on the receiving agent's device. Replay experiences are excluded;
+loading starts with an empty buffer, so this is not a full training-session
+checkpoint. Target isolation and the next synchronization boundary are retained.
+
+Run the complete suite from the repository root:
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest -q
+```
+
+The smoke test completes a generated episode with an untrained network and no
+optimizer updates. It verifies integration only, not scheduling quality.
+Full training, evaluation baselines, visualization and hyperparameter search
+remain outside Phase 4.
