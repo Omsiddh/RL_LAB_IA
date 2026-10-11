@@ -14,3 +14,6 @@ wheels/
 .env
 .env.*
 !.env.example
+
+# Generated training logs, checkpoints, and plots
+runs/

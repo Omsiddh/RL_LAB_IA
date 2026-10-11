@@ -263,3 +263,142 @@ The smoke test completes a generated episode with an untrained network and no
 optimizer updates. It verifies integration only, not scheduling quality.
 Full training, evaluation baselines, visualization and hyperparameter search
 remain outside Phase 4.
+
+## Phase 5: reproducible training and greedy validation
+
+The training pipeline reuses `DQNAgent` for action selection, replay insertion,
+optimization, target synchronization, and checkpoint save/load. It does not
+implement scheduling baselines or final test-set comparisons.
+
+- `src/training/config.py`: validated training configuration and linear epsilon schedule.
+- `src/training/train.py`: training orchestration, CSV logs, checkpoints, and CLI.
+- `src/training/validation.py`: fixed validation workloads and isolated greedy evaluation.
+- `src/training/plots.py`: headless PNG plots generated from saved logs.
+- `tests/test_training.py`: timing, isolation, reproducibility, metrics, and artifact tests.
+
+Install dependencies into the project environment, then run from the repository root:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m src.training.train --smoke --seed 42 --output-dir runs/phase5_smoke
+.\.venv\Scripts\python.exe -m src.training.train --episodes 500 --seed 42 --output-dir runs/phase5_diagnostic
+```
+
+`--smoke` selects 20 episodes; an explicit `--episodes` overrides it. Without
+either option the CLI uses the 6000-episode default. A full experiment is an
+explicit next step, not something run by the smoke or diagnostic commands.
+Choose a fresh output directory for every run; existing training artifacts are
+protected from overwriting. Generated files under `runs/` are ignored by Git.
+
+Default controls:
+
+| Control | Default |
+| --- | --- |
+| Training episodes | 6000 |
+| Initial / minimum epsilon | 1.0 / 0.05 |
+| Linear decay duration | 100000 environment steps |
+| Replay warm-up | 1000 transitions |
+| Optimization interval | 4 environment steps |
+| Validation interval | 250 completed episodes |
+| Fixed validation workloads | 128 |
+| Training / validation seed | 42 / 1729 |
+| Device / PyTorch CPU threads | cpu / 1 |
+| Learning rate / gamma | 0.0005 / 1.0 (DQN defaults) |
+| Batch size / replay capacity | 64 / 20000 (DQN defaults) |
+| Target synchronization | Every 250 optimizer updates (DQN default) |
+
+CLI flags also expose epsilon controls, warm-up, optimization interval,
+validation interval/count/seed, device, and CPU thread count. Programmatic
+configuration can override DQN settings without duplicating their defaults:
+
+```python
+from src.training.config import TrainingConfig
+from src.training.train import Trainer
+
+config = TrainingConfig(episodes=100, seed=42,
+                        agent_options={"learning_rate": 0.0005, "batch_size": 64})
+summary = Trainer(config).run("runs/custom")
+```
+
+Each episode generates a workload with 4–6 processes, arrival times 0–8, and
+bursts 1–10. Input order is shuffled independently of process attributes to
+randomize slot assignments. Policy selection receives only the adapter's
+39-feature observation and six-action mask. Unarrived process features remain
+zero; neither total process count nor future arrival/burst information is
+passed to the policy. Completed-process records are read afterward for logging.
+Episode reward must equal negative total process waiting time, and episode
+length must equal total burst time; the pipeline checks these invariants.
+
+Epsilon is computed before each action from the number of completed global
+environment steps. It reaches exactly 0.05 at step 100000 and remains there.
+After inserting a transition and incrementing the step counter, optimization
+runs when replay contains at least both the warm-up and batch-size requirements
+and the global step is divisible by the optimization interval. With defaults,
+the first update is at step 1000. Only `DQNAgent.optimize_step()` synchronizes
+the target network. Loss and pre-clipping gradient norm are averaged over the
+successful optimizer updates in each episode; episodes with no updates have
+empty CSV cells for these statistics.
+
+Validation workloads are generated once using a dedicated seed, independent of
+training workload generation, exploration, and replay sampling. Every evaluation
+uses this same collection and slot assignments. Evaluation runs before training,
+at the validation interval, and at the end when it falls between intervals.
+It uses epsilon 0, evaluation mode, and disabled gradients, with an isolated
+action RNG. It restores training mode and RNG afterward, including on failure,
+and performs no optimization, replay insertion, or target synchronization.
+Waiting and turnaround means divide totals by the total number of processes
+across all validation workloads, rather than averaging per-workload means.
+No test workloads are used for checkpoint selection.
+
+Every output directory contains:
+
+- `training_metrics.csv`: episode reward, process count, waiting/turnaround means,
+  epsilon at episode start/end, episode length, environment and optimizer counters,
+  and optimizer statistics.
+- `validation_metrics.csv`: evaluation episode/counters, process-weighted means,
+  mean workload reward, and whether the result improved the best score.
+- `training_config.json`: training controls, resolved DQN configuration, seeds,
+  and Python/NumPy/PyTorch versions.
+- `best_model.pt`: checkpoint with the lowest validation waiting time; ties keep
+  the earlier checkpoint. The untrained policy is eligible.
+- `final_model.pt`: final policy saved separately, regardless of its score.
+- `best_model.json` and `final_model.json`: corresponding episode, environment-step
+  count, optimizer-update count, epsilon schedule position/value, seed, full
+  configuration, validation metrics, and resume limitations.
+- `training_reward.png`, `training_waiting_time.png`, `validation_waiting_time.png`,
+  `dqn_loss.png`, and `epsilon_decay.png`. Training and loss plots show trailing
+  25-episode averages with partial windows at the beginning. Empty training or
+  loss series produce an explanatory figure instead of an error.
+
+Regenerate plots from the saved CSV files:
+
+```python
+from src.training.plots import generate_plots
+generate_plots("runs/phase5_diagnostic", window=25)
+```
+
+Load a saved model for evaluation using the existing agent API:
+
+```python
+from src.agent import DQNAgent
+from src.training.validation import Validator
+
+agent = DQNAgent()
+agent.load("runs/phase5_diagnostic/best_model.pt")
+metrics = Validator(workload_count=128, seed=1729).evaluate(agent)
+```
+
+These checkpoints support model evaluation and retain Adam state and optimizer
+counts. They are **not full interrupted-session resume checkpoints**: replay
+experiences are excluded, `DQNAgent.load()` starts with empty replay, and the
+trainer does not restore workload RNG or orchestration state. Exact resume
+equivalence is not claimed and no resume CLI is provided. Reproducibility is
+tested on CPU with the same software, seed, and thread configuration; identical
+results across hardware or library versions are not guaranteed. The trainer
+temporarily enables deterministic PyTorch algorithms and sets the configured
+CPU thread count, restoring both settings afterward.
+
+A 20-episode smoke run usually ends before the 1000-transition warm-up, so zero
+optimizer updates and an empty loss curve are expected. A 500-episode diagnostic
+also covers only an early portion of the 100000-step epsilon schedule; it is a
+pipeline/learning diagnostic, not evidence of convergence or baseline superiority.

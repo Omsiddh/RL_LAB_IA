@@ -1,4 +1,5 @@
-# NumPy: observations/replay; PyTorch: DQN; pytest: tests.
+# NumPy: observations/replay; PyTorch: DQN; Matplotlib: plots; pytest: tests.
 numpy>=1.24
 torch>=2.2
+matplotlib>=3.7
 pytest>=8
