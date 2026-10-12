@@ -1,0 +1,2507 @@
+{
+  "comparison": [
+    {
+      "policy": "DQN",
+      "workload_count": 128,
+      "process_count": 645,
+      "total_waiting_time": 4248,
+      "total_turnaround_time": 7740,
+      "total_response_time": 3261,
+      "mean_waiting_time": 6.586046511627907,
+      "mean_turnaround_time": 12.0,
+      "mean_response_time": 5.055813953488372,
+      "mean_context_switches": 5.1015625,
+      "mean_preemptions": 1.15625,
+      "total_reward": -4248,
+      "mean_reward": -33.1875
+    },
+    {
+      "policy": "FCFS",
+      "workload_count": 128,
+      "process_count": 645,
+      "total_waiting_time": 5419,
+      "total_turnaround_time": 8911,
+      "total_response_time": 5419,
+      "mean_waiting_time": 8.401550387596899,
+      "mean_turnaround_time": 13.815503875968993,
+      "mean_response_time": 8.401550387596899,
+      "mean_context_switches": 3.9453125,
+      "mean_preemptions": 0.0,
+      "total_reward": -5419,
+      "mean_reward": -42.3359375
+    },
+    {
+      "policy": "SRTF",
+      "workload_count": 128,
+      "process_count": 645,
+      "total_waiting_time": 3874,
+      "total_turnaround_time": 7366,
+      "total_response_time": 3428,
+      "mean_waiting_time": 6.006201550387597,
+      "mean_turnaround_time": 11.42015503875969,
+      "mean_response_time": 5.314728682170543,
+      "mean_context_switches": 4.6015625,
+      "mean_preemptions": 0.65625,
+      "total_reward": -3874,
+      "mean_reward": -30.265625
+    },
+    {
+      "policy": "Round Robin",
+      "workload_count": 128,
+      "process_count": 645,
+      "total_waiting_time": 7335,
+      "total_turnaround_time": 10827,
+      "total_response_time": 1599,
+      "mean_waiting_time": 11.372093023255815,
+      "mean_turnaround_time": 16.78604651162791,
+      "mean_response_time": 2.4790697674418603,
+      "mean_context_switches": 12.9609375,
+      "mean_preemptions": 9.015625,
+      "total_reward": -7335,
+      "mean_reward": -57.3046875
+    }
+  ],
+  "by_process_count": [
+    {
+      "policy": "DQN",
+      "process_count_group": 4,
+      "workload_count": 41,
+      "process_count": 164,
+      "total_waiting_time": 694,
+      "total_turnaround_time": 1565,
+      "total_response_time": 507,
+      "mean_waiting_time": 4.2317073170731705,
+      "mean_turnaround_time": 9.542682926829269,
+      "mean_response_time": 3.091463414634146,
+      "mean_context_switches": 3.8048780487804876,
+      "mean_preemptions": 0.9024390243902439,
+      "total_reward": -694,
+      "mean_reward": -16.926829268292682
+    },
+    {
+      "policy": "DQN",
+      "process_count_group": 5,
+      "workload_count": 41,
+      "process_count": 205,
+      "total_waiting_time": 1198,
+      "total_turnaround_time": 2291,
+      "total_response_time": 946,
+      "mean_waiting_time": 5.84390243902439,
+      "mean_turnaround_time": 11.175609756097561,
+      "mean_response_time": 4.614634146341463,
+      "mean_context_switches": 4.780487804878049,
+      "mean_preemptions": 0.8780487804878049,
+      "total_reward": -1198,
+      "mean_reward": -29.21951219512195
+    },
+    {
+      "policy": "DQN",
+      "process_count_group": 6,
+      "workload_count": 46,
+      "process_count": 276,
+      "total_waiting_time": 2356,
+      "total_turnaround_time": 3884,
+      "total_response_time": 1808,
+      "mean_waiting_time": 8.53623188405797,
+      "mean_turnaround_time": 14.072463768115941,
+      "mean_response_time": 6.550724637681159,
+      "mean_context_switches": 6.543478260869565,
+      "mean_preemptions": 1.6304347826086956,
+      "total_reward": -2356,
+      "mean_reward": -51.21739130434783
+    },
+    {
+      "policy": "FCFS",
+      "process_count_group": 4,
+      "workload_count": 41,
+      "process_count": 164,
+      "total_waiting_time": 927,
+      "total_turnaround_time": 1798,
+      "total_response_time": 927,
+      "mean_waiting_time": 5.652439024390244,
+      "mean_turnaround_time": 10.963414634146341,
+      "mean_response_time": 5.652439024390244,
+      "mean_context_switches": 2.902439024390244,
+      "mean_preemptions": 0.0,
+      "total_reward": -927,
+      "mean_reward": -22.609756097560975
+    },
+    {
+      "policy": "FCFS",
+      "process_count_group": 5,
+      "workload_count": 41,
+      "process_count": 205,
+      "total_waiting_time": 1575,
+      "total_turnaround_time": 2668,
+      "total_response_time": 1575,
+      "mean_waiting_time": 7.682926829268292,
+      "mean_turnaround_time": 13.014634146341463,
+      "mean_response_time": 7.682926829268292,
+      "mean_context_switches": 3.902439024390244,
+      "mean_preemptions": 0.0,
+      "total_reward": -1575,
+      "mean_reward": -38.41463414634146
+    },
+    {
+      "policy": "FCFS",
+      "process_count_group": 6,
+      "workload_count": 46,
+      "process_count": 276,
+      "total_waiting_time": 2917,
+      "total_turnaround_time": 4445,
+      "total_response_time": 2917,
+      "mean_waiting_time": 10.568840579710145,
+      "mean_turnaround_time": 16.105072463768117,
+      "mean_response_time": 10.568840579710145,
+      "mean_context_switches": 4.913043478260869,
+      "mean_preemptions": 0.0,
+      "total_reward": -2917,
+      "mean_reward": -63.41304347826087
+    },
+    {
+      "policy": "SRTF",
+      "process_count_group": 4,
+      "workload_count": 41,
+      "process_count": 164,
+      "total_waiting_time": 651,
+      "total_turnaround_time": 1522,
+      "total_response_time": 545,
+      "mean_waiting_time": 3.9695121951219514,
+      "mean_turnaround_time": 9.28048780487805,
+      "mean_response_time": 3.323170731707317,
+      "mean_context_switches": 3.5121951219512195,
+      "mean_preemptions": 0.6097560975609756,
+      "total_reward": -651,
+      "mean_reward": -15.878048780487806
+    },
+    {
+      "policy": "SRTF",
+      "process_count_group": 5,
+      "workload_count": 41,
+      "process_count": 205,
+      "total_waiting_time": 1115,
+      "total_turnaround_time": 2208,
+      "total_response_time": 935,
+      "mean_waiting_time": 5.439024390243903,
+      "mean_turnaround_time": 10.770731707317074,
+      "mean_response_time": 4.560975609756097,
+      "mean_context_switches": 4.658536585365853,
+      "mean_preemptions": 0.7560975609756098,
+      "total_reward": -1115,
+      "mean_reward": -27.195121951219512
+    },
+    {
+      "policy": "SRTF",
+      "process_count_group": 6,
+      "workload_count": 46,
+      "process_count": 276,
+      "total_waiting_time": 2108,
+      "total_turnaround_time": 3636,
+      "total_response_time": 1948,
+      "mean_waiting_time": 7.63768115942029,
+      "mean_turnaround_time": 13.173913043478262,
+      "mean_response_time": 7.057971014492754,
+      "mean_context_switches": 5.521739130434782,
+      "mean_preemptions": 0.6086956521739131,
+      "total_reward": -2108,
+      "mean_reward": -45.82608695652174
+    },
+    {
+      "policy": "Round Robin",
+      "process_count_group": 4,
+      "workload_count": 41,
+      "process_count": 164,
+      "total_waiting_time": 1246,
+      "total_turnaround_time": 2117,
+      "total_response_time": 243,
+      "mean_waiting_time": 7.597560975609756,
+      "mean_turnaround_time": 12.908536585365853,
+      "mean_response_time": 1.4817073170731707,
+      "mean_context_switches": 9.439024390243903,
+      "mean_preemptions": 6.536585365853658,
+      "total_reward": -1246,
+      "mean_reward": -30.390243902439025
+    },
+    {
+      "policy": "Round Robin",
+      "process_count_group": 5,
+      "workload_count": 41,
+      "process_count": 205,
+      "total_waiting_time": 2117,
+      "total_turnaround_time": 3210,
+      "total_response_time": 470,
+      "mean_waiting_time": 10.326829268292682,
+      "mean_turnaround_time": 15.658536585365853,
+      "mean_response_time": 2.292682926829268,
+      "mean_context_switches": 12.78048780487805,
+      "mean_preemptions": 8.878048780487806,
+      "total_reward": -2117,
+      "mean_reward": -51.63414634146341
+    },
+    {
+      "policy": "Round Robin",
+      "process_count_group": 6,
+      "workload_count": 46,
+      "process_count": 276,
+      "total_waiting_time": 3972,
+      "total_turnaround_time": 5500,
+      "total_response_time": 886,
+      "mean_waiting_time": 14.391304347826088,
+      "mean_turnaround_time": 19.92753623188406,
+      "mean_response_time": 3.210144927536232,
+      "mean_context_switches": 16.26086956521739,
+      "mean_preemptions": 11.347826086956522,
+      "total_reward": -3972,
+      "mean_reward": -86.34782608695652
+    }
+  ],
+  "optimality_gap": {
+    "absolute_mean_waiting_gap": 0.57984496124031,
+    "percentage_mean_waiting_gap": 9.654104284976768,
+    "total_waiting_gap": 374,
+    "dqn_srtf_tied_workloads": 40,
+    "dqn_above_srtf_workloads": 88,
+    "srtf_inequality_violations": 0,
+    "unweighted_mean_workload_gap": 0.5365885416666667,
+    "median_workload_gap": 0.29166666666666663,
+    "minimum_workload_gap": 0.0,
+    "maximum_workload_gap": 4.666666666666667,
+    "best_workload_ids": [
+      1,
+      3,
+      5,
+      7,
+      8,
+      10,
+      14,
+      15,
+      22,
+      25,
+      30,
+      34,
+      38,
+      42,
+      44,
+      46,
+      48,
+      50,
+      53,
+      62,
+      66,
+      71,
+      72,
+      76,
+      77,
+      83,
+      84,
+      88,
+      95,
+      97,
+      98,
+      103,
+      104,
+      107,
+      114,
+      117,
+      118,
+      121,
+      124,
+      126
+    ],
+    "worst_workload_ids": [
+      81
+    ],
+    "best_example": {
+      "workload_id": 1,
+      "definitions": [
+        [
+          "P1",
+          7,
+          5
+        ],
+        [
+          "P2",
+          4,
+          5
+        ],
+        [
+          "P4",
+          0,
+          4
+        ],
+        [
+          "P3",
+          7,
+          5
+        ]
+      ],
+      "comparison": {
+        "workload_id": 1,
+        "process_count": 4,
+        "dqn_mean_waiting_time": 2.25,
+        "dqn_mean_turnaround_time": 7.0,
+        "dqn_mean_response_time": 2.25,
+        "dqn_context_switches": 3,
+        "dqn_preemptions": 0,
+        "dqn_total_reward": -9,
+        "dqn_total_time": 19,
+        "dqn_idle_time": 0,
+        "fcfs_mean_waiting_time": 2.25,
+        "fcfs_mean_turnaround_time": 7.0,
+        "fcfs_mean_response_time": 2.25,
+        "fcfs_context_switches": 3,
+        "fcfs_preemptions": 0,
+        "fcfs_total_reward": -9,
+        "fcfs_total_time": 19,
+        "fcfs_idle_time": 0,
+        "srtf_mean_waiting_time": 2.25,
+        "srtf_mean_turnaround_time": 7.0,
+        "srtf_mean_response_time": 2.25,
+        "srtf_context_switches": 3,
+        "srtf_preemptions": 0,
+        "srtf_total_reward": -9,
+        "srtf_total_time": 19,
+        "srtf_idle_time": 0,
+        "round_robin_mean_waiting_time": 4.25,
+        "round_robin_mean_turnaround_time": 9.0,
+        "round_robin_mean_response_time": 1.0,
+        "round_robin_context_switches": 8,
+        "round_robin_preemptions": 5,
+        "round_robin_total_reward": -17,
+        "round_robin_total_time": 19,
+        "round_robin_idle_time": 0,
+        "dqn_srtf_total_waiting_gap": 0,
+        "dqn_srtf_mean_waiting_gap": 0.0,
+        "dqn_srtf_percentage_waiting_gap": 0.0
+      },
+      "timelines": {
+        "DQN": [
+          [
+            0,
+            1,
+            2,
+            "P4"
+          ],
+          [
+            1,
+            2,
+            2,
+            "P4"
+          ],
+          [
+            2,
+            3,
+            2,
+            "P4"
+          ],
+          [
+            3,
+            4,
+            2,
+            "P4"
+          ],
+          [
+            4,
+            5,
+            1,
+            "P2"
+          ],
+          [
+            5,
+            6,
+            1,
+            "P2"
+          ],
+          [
+            6,
+            7,
+            1,
+            "P2"
+          ],
+          [
+            7,
+            8,
+            1,
+            "P2"
+          ],
+          [
+            8,
+            9,
+            1,
+            "P2"
+          ],
+          [
+            9,
+            10,
+            0,
+            "P1"
+          ],
+          [
+            10,
+            11,
+            0,
+            "P1"
+          ],
+          [
+            11,
+            12,
+            0,
+            "P1"
+          ],
+          [
+            12,
+            13,
+            0,
+            "P1"
+          ],
+          [
+            13,
+            14,
+            0,
+            "P1"
+          ],
+          [
+            14,
+            15,
+            3,
+            "P3"
+          ],
+          [
+            15,
+            16,
+            3,
+            "P3"
+          ],
+          [
+            16,
+            17,
+            3,
+            "P3"
+          ],
+          [
+            17,
+            18,
+            3,
+            "P3"
+          ],
+          [
+            18,
+            19,
+            3,
+            "P3"
+          ]
+        ],
+        "FCFS": [
+          [
+            0,
+            1,
+            2,
+            "P4"
+          ],
+          [
+            1,
+            2,
+            2,
+            "P4"
+          ],
+          [
+            2,
+            3,
+            2,
+            "P4"
+          ],
+          [
+            3,
+            4,
+            2,
+            "P4"
+          ],
+          [
+            4,
+            5,
+            1,
+            "P2"
+          ],
+          [
+            5,
+            6,
+            1,
+            "P2"
+          ],
+          [
+            6,
+            7,
+            1,
+            "P2"
+          ],
+          [
+            7,
+            8,
+            1,
+            "P2"
+          ],
+          [
+            8,
+            9,
+            1,
+            "P2"
+          ],
+          [
+            9,
+            10,
+            0,
+            "P1"
+          ],
+          [
+            10,
+            11,
+            0,
+            "P1"
+          ],
+          [
+            11,
+            12,
+            0,
+            "P1"
+          ],
+          [
+            12,
+            13,
+            0,
+            "P1"
+          ],
+          [
+            13,
+            14,
+            0,
+            "P1"
+          ],
+          [
+            14,
+            15,
+            3,
+            "P3"
+          ],
+          [
+            15,
+            16,
+            3,
+            "P3"
+          ],
+          [
+            16,
+            17,
+            3,
+            "P3"
+          ],
+          [
+            17,
+            18,
+            3,
+            "P3"
+          ],
+          [
+            18,
+            19,
+            3,
+            "P3"
+          ]
+        ],
+        "SRTF": [
+          [
+            0,
+            1,
+            2,
+            "P4"
+          ],
+          [
+            1,
+            2,
+            2,
+            "P4"
+          ],
+          [
+            2,
+            3,
+            2,
+            "P4"
+          ],
+          [
+            3,
+            4,
+            2,
+            "P4"
+          ],
+          [
+            4,
+            5,
+            1,
+            "P2"
+          ],
+          [
+            5,
+            6,
+            1,
+            "P2"
+          ],
+          [
+            6,
+            7,
+            1,
+            "P2"
+          ],
+          [
+            7,
+            8,
+            1,
+            "P2"
+          ],
+          [
+            8,
+            9,
+            1,
+            "P2"
+          ],
+          [
+            9,
+            10,
+            0,
+            "P1"
+          ],
+          [
+            10,
+            11,
+            0,
+            "P1"
+          ],
+          [
+            11,
+            12,
+            0,
+            "P1"
+          ],
+          [
+            12,
+            13,
+            0,
+            "P1"
+          ],
+          [
+            13,
+            14,
+            0,
+            "P1"
+          ],
+          [
+            14,
+            15,
+            3,
+            "P3"
+          ],
+          [
+            15,
+            16,
+            3,
+            "P3"
+          ],
+          [
+            16,
+            17,
+            3,
+            "P3"
+          ],
+          [
+            17,
+            18,
+            3,
+            "P3"
+          ],
+          [
+            18,
+            19,
+            3,
+            "P3"
+          ]
+        ],
+        "Round Robin": [
+          [
+            0,
+            1,
+            2,
+            "P4"
+          ],
+          [
+            1,
+            2,
+            2,
+            "P4"
+          ],
+          [
+            2,
+            3,
+            2,
+            "P4"
+          ],
+          [
+            3,
+            4,
+            2,
+            "P4"
+          ],
+          [
+            4,
+            5,
+            1,
+            "P2"
+          ],
+          [
+            5,
+            6,
+            1,
+            "P2"
+          ],
+          [
+            6,
+            7,
+            1,
+            "P2"
+          ],
+          [
+            7,
+            8,
+            1,
+            "P2"
+          ],
+          [
+            8,
+            9,
+            0,
+            "P1"
+          ],
+          [
+            9,
+            10,
+            0,
+            "P1"
+          ],
+          [
+            10,
+            11,
+            3,
+            "P3"
+          ],
+          [
+            11,
+            12,
+            3,
+            "P3"
+          ],
+          [
+            12,
+            13,
+            1,
+            "P2"
+          ],
+          [
+            13,
+            14,
+            0,
+            "P1"
+          ],
+          [
+            14,
+            15,
+            0,
+            "P1"
+          ],
+          [
+            15,
+            16,
+            3,
+            "P3"
+          ],
+          [
+            16,
+            17,
+            3,
+            "P3"
+          ],
+          [
+            17,
+            18,
+            0,
+            "P1"
+          ],
+          [
+            18,
+            19,
+            3,
+            "P3"
+          ]
+        ]
+      }
+    },
+    "worst_example": {
+      "workload_id": 81,
+      "definitions": [
+        [
+          "P1",
+          4,
+          10
+        ],
+        [
+          "P4",
+          6,
+          10
+        ],
+        [
+          "P2",
+          8,
+          9
+        ],
+        [
+          "P6",
+          1,
+          8
+        ],
+        [
+          "P3",
+          4,
+          5
+        ],
+        [
+          "P5",
+          0,
+          9
+        ]
+      ],
+      "comparison": {
+        "workload_id": 81,
+        "process_count": 6,
+        "dqn_mean_waiting_time": 20.333333333333332,
+        "dqn_mean_turnaround_time": 28.833333333333332,
+        "dqn_mean_response_time": 6.333333333333333,
+        "dqn_context_switches": 8,
+        "dqn_preemptions": 3,
+        "dqn_total_reward": -122,
+        "dqn_total_time": 51,
+        "dqn_idle_time": 0,
+        "fcfs_mean_waiting_time": 17.333333333333332,
+        "fcfs_mean_turnaround_time": 25.833333333333332,
+        "fcfs_mean_response_time": 17.333333333333332,
+        "fcfs_context_switches": 5,
+        "fcfs_preemptions": 0,
+        "fcfs_total_reward": -104,
+        "fcfs_total_time": 51,
+        "fcfs_idle_time": 0,
+        "srtf_mean_waiting_time": 15.666666666666666,
+        "srtf_mean_turnaround_time": 24.166666666666668,
+        "srtf_mean_response_time": 15.666666666666666,
+        "srtf_context_switches": 5,
+        "srtf_preemptions": 0,
+        "srtf_total_reward": -94,
+        "srtf_total_time": 51,
+        "srtf_idle_time": 0,
+        "round_robin_mean_waiting_time": 30.166666666666668,
+        "round_robin_mean_turnaround_time": 38.666666666666664,
+        "round_robin_mean_response_time": 3.5,
+        "round_robin_context_switches": 26,
+        "round_robin_preemptions": 21,
+        "round_robin_total_reward": -181,
+        "round_robin_total_time": 51,
+        "round_robin_idle_time": 0,
+        "dqn_srtf_total_waiting_gap": 28,
+        "dqn_srtf_mean_waiting_gap": 4.666666666666667,
+        "dqn_srtf_percentage_waiting_gap": 29.78723404255319
+      },
+      "timelines": {
+        "DQN": [
+          [
+            0,
+            1,
+            5,
+            "P5"
+          ],
+          [
+            1,
+            2,
+            3,
+            "P6"
+          ],
+          [
+            2,
+            3,
+            3,
+            "P6"
+          ],
+          [
+            3,
+            4,
+            3,
+            "P6"
+          ],
+          [
+            4,
+            5,
+            0,
+            "P1"
+          ],
+          [
+            5,
+            6,
+            0,
+            "P1"
+          ],
+          [
+            6,
+            7,
+            0,
+            "P1"
+          ],
+          [
+            7,
+            8,
+            0,
+            "P1"
+          ],
+          [
+            8,
+            9,
+            4,
+            "P3"
+          ],
+          [
+            9,
+            10,
+            4,
+            "P3"
+          ],
+          [
+            10,
+            11,
+            4,
+            "P3"
+          ],
+          [
+            11,
+            12,
+            4,
+            "P3"
+          ],
+          [
+            12,
+            13,
+            4,
+            "P3"
+          ],
+          [
+            13,
+            14,
+            0,
+            "P1"
+          ],
+          [
+            14,
+            15,
+            0,
+            "P1"
+          ],
+          [
+            15,
+            16,
+            0,
+            "P1"
+          ],
+          [
+            16,
+            17,
+            0,
+            "P1"
+          ],
+          [
+            17,
+            18,
+            0,
+            "P1"
+          ],
+          [
+            18,
+            19,
+            0,
+            "P1"
+          ],
+          [
+            19,
+            20,
+            1,
+            "P4"
+          ],
+          [
+            20,
+            21,
+            1,
+            "P4"
+          ],
+          [
+            21,
+            22,
+            1,
+            "P4"
+          ],
+          [
+            22,
+            23,
+            1,
+            "P4"
+          ],
+          [
+            23,
+            24,
+            1,
+            "P4"
+          ],
+          [
+            24,
+            25,
+            1,
+            "P4"
+          ],
+          [
+            25,
+            26,
+            1,
+            "P4"
+          ],
+          [
+            26,
+            27,
+            1,
+            "P4"
+          ],
+          [
+            27,
+            28,
+            1,
+            "P4"
+          ],
+          [
+            28,
+            29,
+            1,
+            "P4"
+          ],
+          [
+            29,
+            30,
+            2,
+            "P2"
+          ],
+          [
+            30,
+            31,
+            2,
+            "P2"
+          ],
+          [
+            31,
+            32,
+            2,
+            "P2"
+          ],
+          [
+            32,
+            33,
+            2,
+            "P2"
+          ],
+          [
+            33,
+            34,
+            2,
+            "P2"
+          ],
+          [
+            34,
+            35,
+            2,
+            "P2"
+          ],
+          [
+            35,
+            36,
+            2,
+            "P2"
+          ],
+          [
+            36,
+            37,
+            2,
+            "P2"
+          ],
+          [
+            37,
+            38,
+            2,
+            "P2"
+          ],
+          [
+            38,
+            39,
+            5,
+            "P5"
+          ],
+          [
+            39,
+            40,
+            5,
+            "P5"
+          ],
+          [
+            40,
+            41,
+            5,
+            "P5"
+          ],
+          [
+            41,
+            42,
+            5,
+            "P5"
+          ],
+          [
+            42,
+            43,
+            5,
+            "P5"
+          ],
+          [
+            43,
+            44,
+            5,
+            "P5"
+          ],
+          [
+            44,
+            45,
+            5,
+            "P5"
+          ],
+          [
+            45,
+            46,
+            5,
+            "P5"
+          ],
+          [
+            46,
+            47,
+            3,
+            "P6"
+          ],
+          [
+            47,
+            48,
+            3,
+            "P6"
+          ],
+          [
+            48,
+            49,
+            3,
+            "P6"
+          ],
+          [
+            49,
+            50,
+            3,
+            "P6"
+          ],
+          [
+            50,
+            51,
+            3,
+            "P6"
+          ]
+        ],
+        "FCFS": [
+          [
+            0,
+            1,
+            5,
+            "P5"
+          ],
+          [
+            1,
+            2,
+            5,
+            "P5"
+          ],
+          [
+            2,
+            3,
+            5,
+            "P5"
+          ],
+          [
+            3,
+            4,
+            5,
+            "P5"
+          ],
+          [
+            4,
+            5,
+            5,
+            "P5"
+          ],
+          [
+            5,
+            6,
+            5,
+            "P5"
+          ],
+          [
+            6,
+            7,
+            5,
+            "P5"
+          ],
+          [
+            7,
+            8,
+            5,
+            "P5"
+          ],
+          [
+            8,
+            9,
+            5,
+            "P5"
+          ],
+          [
+            9,
+            10,
+            3,
+            "P6"
+          ],
+          [
+            10,
+            11,
+            3,
+            "P6"
+          ],
+          [
+            11,
+            12,
+            3,
+            "P6"
+          ],
+          [
+            12,
+            13,
+            3,
+            "P6"
+          ],
+          [
+            13,
+            14,
+            3,
+            "P6"
+          ],
+          [
+            14,
+            15,
+            3,
+            "P6"
+          ],
+          [
+            15,
+            16,
+            3,
+            "P6"
+          ],
+          [
+            16,
+            17,
+            3,
+            "P6"
+          ],
+          [
+            17,
+            18,
+            0,
+            "P1"
+          ],
+          [
+            18,
+            19,
+            0,
+            "P1"
+          ],
+          [
+            19,
+            20,
+            0,
+            "P1"
+          ],
+          [
+            20,
+            21,
+            0,
+            "P1"
+          ],
+          [
+            21,
+            22,
+            0,
+            "P1"
+          ],
+          [
+            22,
+            23,
+            0,
+            "P1"
+          ],
+          [
+            23,
+            24,
+            0,
+            "P1"
+          ],
+          [
+            24,
+            25,
+            0,
+            "P1"
+          ],
+          [
+            25,
+            26,
+            0,
+            "P1"
+          ],
+          [
+            26,
+            27,
+            0,
+            "P1"
+          ],
+          [
+            27,
+            28,
+            4,
+            "P3"
+          ],
+          [
+            28,
+            29,
+            4,
+            "P3"
+          ],
+          [
+            29,
+            30,
+            4,
+            "P3"
+          ],
+          [
+            30,
+            31,
+            4,
+            "P3"
+          ],
+          [
+            31,
+            32,
+            4,
+            "P3"
+          ],
+          [
+            32,
+            33,
+            1,
+            "P4"
+          ],
+          [
+            33,
+            34,
+            1,
+            "P4"
+          ],
+          [
+            34,
+            35,
+            1,
+            "P4"
+          ],
+          [
+            35,
+            36,
+            1,
+            "P4"
+          ],
+          [
+            36,
+            37,
+            1,
+            "P4"
+          ],
+          [
+            37,
+            38,
+            1,
+            "P4"
+          ],
+          [
+            38,
+            39,
+            1,
+            "P4"
+          ],
+          [
+            39,
+            40,
+            1,
+            "P4"
+          ],
+          [
+            40,
+            41,
+            1,
+            "P4"
+          ],
+          [
+            41,
+            42,
+            1,
+            "P4"
+          ],
+          [
+            42,
+            43,
+            2,
+            "P2"
+          ],
+          [
+            43,
+            44,
+            2,
+            "P2"
+          ],
+          [
+            44,
+            45,
+            2,
+            "P2"
+          ],
+          [
+            45,
+            46,
+            2,
+            "P2"
+          ],
+          [
+            46,
+            47,
+            2,
+            "P2"
+          ],
+          [
+            47,
+            48,
+            2,
+            "P2"
+          ],
+          [
+            48,
+            49,
+            2,
+            "P2"
+          ],
+          [
+            49,
+            50,
+            2,
+            "P2"
+          ],
+          [
+            50,
+            51,
+            2,
+            "P2"
+          ]
+        ],
+        "SRTF": [
+          [
+            0,
+            1,
+            5,
+            "P5"
+          ],
+          [
+            1,
+            2,
+            5,
+            "P5"
+          ],
+          [
+            2,
+            3,
+            5,
+            "P5"
+          ],
+          [
+            3,
+            4,
+            5,
+            "P5"
+          ],
+          [
+            4,
+            5,
+            5,
+            "P5"
+          ],
+          [
+            5,
+            6,
+            5,
+            "P5"
+          ],
+          [
+            6,
+            7,
+            5,
+            "P5"
+          ],
+          [
+            7,
+            8,
+            5,
+            "P5"
+          ],
+          [
+            8,
+            9,
+            5,
+            "P5"
+          ],
+          [
+            9,
+            10,
+            4,
+            "P3"
+          ],
+          [
+            10,
+            11,
+            4,
+            "P3"
+          ],
+          [
+            11,
+            12,
+            4,
+            "P3"
+          ],
+          [
+            12,
+            13,
+            4,
+            "P3"
+          ],
+          [
+            13,
+            14,
+            4,
+            "P3"
+          ],
+          [
+            14,
+            15,
+            3,
+            "P6"
+          ],
+          [
+            15,
+            16,
+            3,
+            "P6"
+          ],
+          [
+            16,
+            17,
+            3,
+            "P6"
+          ],
+          [
+            17,
+            18,
+            3,
+            "P6"
+          ],
+          [
+            18,
+            19,
+            3,
+            "P6"
+          ],
+          [
+            19,
+            20,
+            3,
+            "P6"
+          ],
+          [
+            20,
+            21,
+            3,
+            "P6"
+          ],
+          [
+            21,
+            22,
+            3,
+            "P6"
+          ],
+          [
+            22,
+            23,
+            2,
+            "P2"
+          ],
+          [
+            23,
+            24,
+            2,
+            "P2"
+          ],
+          [
+            24,
+            25,
+            2,
+            "P2"
+          ],
+          [
+            25,
+            26,
+            2,
+            "P2"
+          ],
+          [
+            26,
+            27,
+            2,
+            "P2"
+          ],
+          [
+            27,
+            28,
+            2,
+            "P2"
+          ],
+          [
+            28,
+            29,
+            2,
+            "P2"
+          ],
+          [
+            29,
+            30,
+            2,
+            "P2"
+          ],
+          [
+            30,
+            31,
+            2,
+            "P2"
+          ],
+          [
+            31,
+            32,
+            0,
+            "P1"
+          ],
+          [
+            32,
+            33,
+            0,
+            "P1"
+          ],
+          [
+            33,
+            34,
+            0,
+            "P1"
+          ],
+          [
+            34,
+            35,
+            0,
+            "P1"
+          ],
+          [
+            35,
+            36,
+            0,
+            "P1"
+          ],
+          [
+            36,
+            37,
+            0,
+            "P1"
+          ],
+          [
+            37,
+            38,
+            0,
+            "P1"
+          ],
+          [
+            38,
+            39,
+            0,
+            "P1"
+          ],
+          [
+            39,
+            40,
+            0,
+            "P1"
+          ],
+          [
+            40,
+            41,
+            0,
+            "P1"
+          ],
+          [
+            41,
+            42,
+            1,
+            "P4"
+          ],
+          [
+            42,
+            43,
+            1,
+            "P4"
+          ],
+          [
+            43,
+            44,
+            1,
+            "P4"
+          ],
+          [
+            44,
+            45,
+            1,
+            "P4"
+          ],
+          [
+            45,
+            46,
+            1,
+            "P4"
+          ],
+          [
+            46,
+            47,
+            1,
+            "P4"
+          ],
+          [
+            47,
+            48,
+            1,
+            "P4"
+          ],
+          [
+            48,
+            49,
+            1,
+            "P4"
+          ],
+          [
+            49,
+            50,
+            1,
+            "P4"
+          ],
+          [
+            50,
+            51,
+            1,
+            "P4"
+          ]
+        ],
+        "Round Robin": [
+          [
+            0,
+            1,
+            5,
+            "P5"
+          ],
+          [
+            1,
+            2,
+            5,
+            "P5"
+          ],
+          [
+            2,
+            3,
+            3,
+            "P6"
+          ],
+          [
+            3,
+            4,
+            3,
+            "P6"
+          ],
+          [
+            4,
+            5,
+            5,
+            "P5"
+          ],
+          [
+            5,
+            6,
+            5,
+            "P5"
+          ],
+          [
+            6,
+            7,
+            0,
+            "P1"
+          ],
+          [
+            7,
+            8,
+            0,
+            "P1"
+          ],
+          [
+            8,
+            9,
+            4,
+            "P3"
+          ],
+          [
+            9,
+            10,
+            4,
+            "P3"
+          ],
+          [
+            10,
+            11,
+            3,
+            "P6"
+          ],
+          [
+            11,
+            12,
+            3,
+            "P6"
+          ],
+          [
+            12,
+            13,
+            1,
+            "P4"
+          ],
+          [
+            13,
+            14,
+            1,
+            "P4"
+          ],
+          [
+            14,
+            15,
+            5,
+            "P5"
+          ],
+          [
+            15,
+            16,
+            5,
+            "P5"
+          ],
+          [
+            16,
+            17,
+            2,
+            "P2"
+          ],
+          [
+            17,
+            18,
+            2,
+            "P2"
+          ],
+          [
+            18,
+            19,
+            0,
+            "P1"
+          ],
+          [
+            19,
+            20,
+            0,
+            "P1"
+          ],
+          [
+            20,
+            21,
+            4,
+            "P3"
+          ],
+          [
+            21,
+            22,
+            4,
+            "P3"
+          ],
+          [
+            22,
+            23,
+            3,
+            "P6"
+          ],
+          [
+            23,
+            24,
+            3,
+            "P6"
+          ],
+          [
+            24,
+            25,
+            1,
+            "P4"
+          ],
+          [
+            25,
+            26,
+            1,
+            "P4"
+          ],
+          [
+            26,
+            27,
+            5,
+            "P5"
+          ],
+          [
+            27,
+            28,
+            5,
+            "P5"
+          ],
+          [
+            28,
+            29,
+            2,
+            "P2"
+          ],
+          [
+            29,
+            30,
+            2,
+            "P2"
+          ],
+          [
+            30,
+            31,
+            0,
+            "P1"
+          ],
+          [
+            31,
+            32,
+            0,
+            "P1"
+          ],
+          [
+            32,
+            33,
+            4,
+            "P3"
+          ],
+          [
+            33,
+            34,
+            3,
+            "P6"
+          ],
+          [
+            34,
+            35,
+            3,
+            "P6"
+          ],
+          [
+            35,
+            36,
+            1,
+            "P4"
+          ],
+          [
+            36,
+            37,
+            1,
+            "P4"
+          ],
+          [
+            37,
+            38,
+            5,
+            "P5"
+          ],
+          [
+            38,
+            39,
+            2,
+            "P2"
+          ],
+          [
+            39,
+            40,
+            2,
+            "P2"
+          ],
+          [
+            40,
+            41,
+            0,
+            "P1"
+          ],
+          [
+            41,
+            42,
+            0,
+            "P1"
+          ],
+          [
+            42,
+            43,
+            1,
+            "P4"
+          ],
+          [
+            43,
+            44,
+            1,
+            "P4"
+          ],
+          [
+            44,
+            45,
+            2,
+            "P2"
+          ],
+          [
+            45,
+            46,
+            2,
+            "P2"
+          ],
+          [
+            46,
+            47,
+            0,
+            "P1"
+          ],
+          [
+            47,
+            48,
+            0,
+            "P1"
+          ],
+          [
+            48,
+            49,
+            1,
+            "P4"
+          ],
+          [
+            49,
+            50,
+            1,
+            "P4"
+          ],
+          [
+            50,
+            51,
+            2,
+            "P2"
+          ]
+        ]
+      }
+    }
+  },
+  "slot_bias": {
+    "statistics": [
+      {
+        "process_count_group": 4,
+        "process_index": 0,
+        "ready_opportunities": 311,
+        "selected_count": 214,
+        "selection_rate_when_ready": 0.6881028938906752,
+        "unique_shortest_opportunities": 136,
+        "unique_shortest_selected": 135,
+        "unique_shortest_selection_rate": 0.9926470588235294,
+        "identical_feature_opportunities": 1,
+        "identical_feature_selected": 1,
+        "identical_feature_expected_uniform": 0.5,
+        "identical_feature_selection_surplus": 0.5
+      },
+      {
+        "process_count_group": 4,
+        "process_index": 1,
+        "ready_opportunities": 332,
+        "selected_count": 220,
+        "selection_rate_when_ready": 0.6626506024096386,
+        "unique_shortest_opportunities": 125,
+        "unique_shortest_selected": 123,
+        "unique_shortest_selection_rate": 0.984,
+        "identical_feature_opportunities": 1,
+        "identical_feature_selected": 0,
+        "identical_feature_expected_uniform": 0.5,
+        "identical_feature_selection_surplus": -0.5
+      },
+      {
+        "process_count_group": 4,
+        "process_index": 2,
+        "ready_opportunities": 428,
+        "selected_count": 237,
+        "selection_rate_when_ready": 0.5537383177570093,
+        "unique_shortest_opportunities": 115,
+        "unique_shortest_selected": 111,
+        "unique_shortest_selection_rate": 0.9652173913043478,
+        "identical_feature_opportunities": 1,
+        "identical_feature_selected": 1,
+        "identical_feature_expected_uniform": 0.5,
+        "identical_feature_selection_surplus": 0.5
+      },
+      {
+        "process_count_group": 4,
+        "process_index": 3,
+        "ready_opportunities": 494,
+        "selected_count": 200,
+        "selection_rate_when_ready": 0.4048582995951417,
+        "unique_shortest_opportunities": 65,
+        "unique_shortest_selected": 32,
+        "unique_shortest_selection_rate": 0.49230769230769234,
+        "identical_feature_opportunities": 3,
+        "identical_feature_selected": 1,
+        "identical_feature_expected_uniform": 1.5,
+        "identical_feature_selection_surplus": -0.5
+      },
+      {
+        "process_count_group": 5,
+        "process_index": 0,
+        "ready_opportunities": 372,
+        "selected_count": 226,
+        "selection_rate_when_ready": 0.6075268817204301,
+        "unique_shortest_opportunities": 158,
+        "unique_shortest_selected": 158,
+        "unique_shortest_selection_rate": 1.0,
+        "identical_feature_opportunities": 1,
+        "identical_feature_selected": 1,
+        "identical_feature_expected_uniform": 0.5,
+        "identical_feature_selection_surplus": 0.5
+      },
+      {
+        "process_count_group": 5,
+        "process_index": 1,
+        "ready_opportunities": 413,
+        "selected_count": 226,
+        "selection_rate_when_ready": 0.5472154963680388,
+        "unique_shortest_opportunities": 152,
+        "unique_shortest_selected": 150,
+        "unique_shortest_selection_rate": 0.9868421052631579,
+        "identical_feature_opportunities": 1,
+        "identical_feature_selected": 0,
+        "identical_feature_expected_uniform": 0.5,
+        "identical_feature_selection_surplus": -0.5
+      },
+      {
+        "process_count_group": 5,
+        "process_index": 2,
+        "ready_opportunities": 405,
+        "selected_count": 197,
+        "selection_rate_when_ready": 0.48641975308641977,
+        "unique_shortest_opportunities": 133,
+        "unique_shortest_selected": 119,
+        "unique_shortest_selection_rate": 0.8947368421052632,
+        "identical_feature_opportunities": 0,
+        "identical_feature_selected": 0,
+        "identical_feature_expected_uniform": 0,
+        "identical_feature_selection_surplus": 0
+      },
+      {
+        "process_count_group": 5,
+        "process_index": 3,
+        "ready_opportunities": 623,
+        "selected_count": 203,
+        "selection_rate_when_ready": 0.3258426966292135,
+        "unique_shortest_opportunities": 91,
+        "unique_shortest_selected": 34,
+        "unique_shortest_selection_rate": 0.37362637362637363,
+        "identical_feature_opportunities": 0,
+        "identical_feature_selected": 0,
+        "identical_feature_expected_uniform": 0,
+        "identical_feature_selection_surplus": 0
+      },
+      {
+        "process_count_group": 5,
+        "process_index": 4,
+        "ready_opportunities": 478,
+        "selected_count": 241,
+        "selection_rate_when_ready": 0.50418410041841,
+        "unique_shortest_opportunities": 124,
+        "unique_shortest_selected": 117,
+        "unique_shortest_selection_rate": 0.9435483870967742,
+        "identical_feature_opportunities": 0,
+        "identical_feature_selected": 0,
+        "identical_feature_expected_uniform": 0,
+        "identical_feature_selection_surplus": 0
+      },
+      {
+        "process_count_group": 6,
+        "process_index": 0,
+        "ready_opportunities": 438,
+        "selected_count": 240,
+        "selection_rate_when_ready": 0.547945205479452,
+        "unique_shortest_opportunities": 142,
+        "unique_shortest_selected": 140,
+        "unique_shortest_selection_rate": 0.9859154929577465,
+        "identical_feature_opportunities": 4,
+        "identical_feature_selected": 3,
+        "identical_feature_expected_uniform": 2.0,
+        "identical_feature_selection_surplus": 1.0
+      },
+      {
+        "process_count_group": 6,
+        "process_index": 1,
+        "ready_opportunities": 548,
+        "selected_count": 259,
+        "selection_rate_when_ready": 0.4726277372262774,
+        "unique_shortest_opportunities": 167,
+        "unique_shortest_selected": 157,
+        "unique_shortest_selection_rate": 0.9401197604790419,
+        "identical_feature_opportunities": 0,
+        "identical_feature_selected": 0,
+        "identical_feature_expected_uniform": 0,
+        "identical_feature_selection_surplus": 0
+      },
+      {
+        "process_count_group": 6,
+        "process_index": 2,
+        "ready_opportunities": 589,
+        "selected_count": 252,
+        "selection_rate_when_ready": 0.42784380305602715,
+        "unique_shortest_opportunities": 172,
+        "unique_shortest_selected": 163,
+        "unique_shortest_selection_rate": 0.9476744186046512,
+        "identical_feature_opportunities": 1,
+        "identical_feature_selected": 1,
+        "identical_feature_expected_uniform": 0.5,
+        "identical_feature_selection_surplus": 0.5
+      },
+      {
+        "process_count_group": 6,
+        "process_index": 3,
+        "ready_opportunities": 1102,
+        "selected_count": 294,
+        "selection_rate_when_ready": 0.26678765880217786,
+        "unique_shortest_opportunities": 88,
+        "unique_shortest_selected": 27,
+        "unique_shortest_selection_rate": 0.3068181818181818,
+        "identical_feature_opportunities": 1,
+        "identical_feature_selected": 0,
+        "identical_feature_expected_uniform": 0.5,
+        "identical_feature_selection_surplus": -0.5
+      },
+      {
+        "process_count_group": 6,
+        "process_index": 4,
+        "ready_opportunities": 398,
+        "selected_count": 235,
+        "selection_rate_when_ready": 0.5904522613065326,
+        "unique_shortest_opportunities": 157,
+        "unique_shortest_selected": 156,
+        "unique_shortest_selection_rate": 0.9936305732484076,
+        "identical_feature_opportunities": 2,
+        "identical_feature_selected": 1,
+        "identical_feature_expected_uniform": 1.0,
+        "identical_feature_selection_surplus": 0.0
+      },
+      {
+        "process_count_group": 6,
+        "process_index": 5,
+        "ready_opportunities": 809,
+        "selected_count": 248,
+        "selection_rate_when_ready": 0.3065512978986403,
+        "unique_shortest_opportunities": 261,
+        "unique_shortest_selected": 166,
+        "unique_shortest_selection_rate": 0.6360153256704981,
+        "identical_feature_opportunities": 2,
+        "identical_feature_selected": 0,
+        "identical_feature_expected_uniform": 1.0,
+        "identical_feature_selection_surplus": -1.0
+      },
+      {
+        "process_count_group": "all",
+        "process_index": 0,
+        "ready_opportunities": 1121,
+        "selected_count": 680,
+        "selection_rate_when_ready": 0.6066012488849242,
+        "unique_shortest_opportunities": 436,
+        "unique_shortest_selected": 433,
+        "unique_shortest_selection_rate": 0.9931192660550459,
+        "identical_feature_opportunities": 6,
+        "identical_feature_selected": 5,
+        "identical_feature_expected_uniform": 3.0,
+        "identical_feature_selection_surplus": 2.0
+      },
+      {
+        "process_count_group": "all",
+        "process_index": 1,
+        "ready_opportunities": 1293,
+        "selected_count": 705,
+        "selection_rate_when_ready": 0.5452436194895591,
+        "unique_shortest_opportunities": 444,
+        "unique_shortest_selected": 430,
+        "unique_shortest_selection_rate": 0.9684684684684685,
+        "identical_feature_opportunities": 2,
+        "identical_feature_selected": 0,
+        "identical_feature_expected_uniform": 1.0,
+        "identical_feature_selection_surplus": -1.0
+      },
+      {
+        "process_count_group": "all",
+        "process_index": 2,
+        "ready_opportunities": 1422,
+        "selected_count": 686,
+        "selection_rate_when_ready": 0.48241912798874825,
+        "unique_shortest_opportunities": 420,
+        "unique_shortest_selected": 393,
+        "unique_shortest_selection_rate": 0.9357142857142857,
+        "identical_feature_opportunities": 2,
+        "identical_feature_selected": 2,
+        "identical_feature_expected_uniform": 1.0,
+        "identical_feature_selection_surplus": 1.0
+      },
+      {
+        "process_count_group": "all",
+        "process_index": 3,
+        "ready_opportunities": 2219,
+        "selected_count": 697,
+        "selection_rate_when_ready": 0.3141054529067147,
+        "unique_shortest_opportunities": 244,
+        "unique_shortest_selected": 93,
+        "unique_shortest_selection_rate": 0.38114754098360654,
+        "identical_feature_opportunities": 4,
+        "identical_feature_selected": 1,
+        "identical_feature_expected_uniform": 2.0,
+        "identical_feature_selection_surplus": -1.0
+      },
+      {
+        "process_count_group": "all",
+        "process_index": 4,
+        "ready_opportunities": 876,
+        "selected_count": 476,
+        "selection_rate_when_ready": 0.54337899543379,
+        "unique_shortest_opportunities": 281,
+        "unique_shortest_selected": 273,
+        "unique_shortest_selection_rate": 0.9715302491103203,
+        "identical_feature_opportunities": 2,
+        "identical_feature_selected": 1,
+        "identical_feature_expected_uniform": 1.0,
+        "identical_feature_selection_surplus": 0.0
+      },
+      {
+        "process_count_group": "all",
+        "process_index": 5,
+        "ready_opportunities": 809,
+        "selected_count": 248,
+        "selection_rate_when_ready": 0.3065512978986403,
+        "unique_shortest_opportunities": 261,
+        "unique_shortest_selected": 166,
+        "unique_shortest_selection_rate": 0.6360153256704981,
+        "identical_feature_opportunities": 2,
+        "identical_feature_selected": 0,
+        "identical_feature_expected_uniform": 1.0,
+        "identical_feature_selection_surplus": -1.0
+      }
+    ],
+    "interpretation_limit": "Observational diagnostics on original slots only. Ready/selection rates are confounded by arrival, burst and workload size. Identical-feature choices condition on equal six-feature observations in the selected group. Unique-shortest rates exclude single-ready states. Events are dependent; these are descriptive counts, not significance tests or a causal bias estimate."
+  },
+  "stage": "6.2",
+  "dataset_role": "Phase 5 model-selection validation; not final test",
+  "checkpoint": "D:\\RL_LAB_IA\\runs\\phase5_full_6000\\best_model.pt",
+  "checkpoint_episode": 5250,
+  "validation_seed": 1729,
+  "workload_count": 128,
+  "process_count": 645,
+  "workload_id_convention": "Zero-based index in original Phase 5 validation collection",
+  "validation_workload_sha256": "7387547e5cf6bdccfcf92732be65a798c0bf0c369050ad06d93869a973f5fe8e",
+  "dqn_epsilon": 0.0,
+  "round_robin_quantum": 2,
+  "device": "cpu",
+  "checks": {
+    "weights_unchanged": true,
+    "optimizer_updates_unchanged": true,
+    "replay_buffer_empty": true,
+    "deterministic_repeat_exact": true,
+    "original_indices_preserved": true,
+    "reward_consistency_all_policies": true,
+    "srtf_inequalities_all_workloads": true,
+    "dqn_validation_score_reproduced": true,
+    "protected_inputs_unchanged": true
+  },
+  "protected_input_sha256": {
+    "runs\\phase5_full_6000\\best_model.pt": "70cda1270c41eb0137d10d7ac295e575e127af98b77fe575facd39c3b4dd83a5",
+    "runs\\phase5_full_6000\\best_model.json": "974b1b50b77f017ed7e93aaf2fe49f3fe4712015a03456ced530e271c4095dfb",
+    "runs\\phase5_full_6000\\training_config.json": "cb1da6a8b4d085c09ed33b25242cdb7b23c56c0ef973a006394a9e70d92d97e2",
+    "runs\\phase5_full_6000\\validation_metrics.csv": "d1ff017ecf00b4549fdf5c7ce6cbe046358f3bc208ae4d12c50469361f768860",
+    "src\\env\\__init__.py": "a96738dd51fd91ad55382e2833d333b5af210dd1b295098abda5908f57f6827a",
+    "src\\env\\environment.py": "d6f07da894ac7d5af127dcfa127a84f938b90890889a4d8f68dddb22e1933d6e",
+    "src\\env\\rl_adapter.py": "f5dc86e387c6052f540060117586b5b828c43f5a22ac2b37bf704d1ac33ca750",
+    "src\\env\\tests\\test_environment.py": "c020dede980e6e8b0d9896ce8935f84975a0cdf36a9152425acb67e987e62973",
+    "src\\env\\tests\\test_rl_adapter.py": "bfc35071dcdac9286b016135ad2ee701a0c925fcdf6a9453e19331cec24d55e0",
+    "src\\env\\workload.py": "cacc98df1268665b7da46f7d245103db5298ac9229bfe68d02f3e9259e5e37aa",
+    "src\\agent\\__init__.py": "58742a1c4a579855aa984ae89f2983a623da4003fba936df773573c088698c68",
+    "src\\agent\\dqn_agent.py": "76f363da9b7102ca498bb2135c2fccc7a097a8d554ec47d21f195a3e9c0fcb40",
+    "src\\agent\\network.py": "7129e1c670b8568d9d393b2ed8c86dc44976dfcbce3d5b429b7bf7e8ba41109c",
+    "src\\agent\\replay_buffer.py": "8edae2de6514d491df8c16d0c0d0c6a0bf7a34d383f73b7ef8e28e3fcf4d146a",
+    "src\\training\\__init__.py": "66731d15ed2dec618d8b289243f98bff3e25b36c7e223f50c1907513a4000027",
+    "src\\training\\config.py": "3f94b82baf7a75dd2b33ae6ae63e0d404b13d99d1faa3714c38f73187a7af4f6",
+    "src\\training\\plots.py": "26f2c8df932b1f52413178388b90550152d0da5576c278cfa181c883592bfd08",
+    "src\\training\\train.py": "263f3b85637ca2b1f3a3d86c89026df1860aec9691aef2b53d0b7114238b4212",
+    "src\\training\\validation.py": "01f00ba4ce515da5ca4f98a20320ffee51b3026d676ab6158c1e8ce1404c05f8",
+    "src\\baselines\\__init__.py": "f45a44530c9727d0bf87cbb502b7e34c263b7bf5221325211cb79d49f7b5f405",
+    "src\\baselines\\fcfs.py": "168638d51b4f6749a9fb07591bae3ac352e14360dda790fe6246a03d4c51cb35",
+    "src\\baselines\\round_robin.py": "218b37d1904f8a5f4f47df97a755585cb7c3103271ff95c7b25a4efd56c40381",
+    "src\\baselines\\runner.py": "0a8e95821b661d6b5f1781b1d95c578e65e4b21bbd5f04cf32403a5863d9e248",
+    "src\\baselines\\srtf.py": "a1c505d14297d392ebce899c47fefcaeb4653c7c2cef28834bc23ec39290524b"
+  },
+  "limitations": [
+    "Model-selection validation data; not an unbiased final-test estimate.",
+    "One checkpoint, one fixed workload collection, zero context-switch overhead.",
+    "Slot analysis is observational and cannot establish a causal slot effect.",
+    "Percentage gaps with zero SRTF waiting are null unless both waits are zero."
+  ]
+}

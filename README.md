@@ -551,3 +551,199 @@ These results use data previously used for model selection, so they are an
 initial validation benchmark rather than an unbiased final test. Stage 6.2
 does not tune hyperparameters, train a new model, implement Stage 6.3, or access
 the reserved final workloads.
+
+## Stage 6.3A: process-slot permutation sensitivity
+
+Run the unchanged episode-5250 checkpoint on the same Phase 5 validation
+collection with:
+
+```powershell
+.\.venv\Scripts\python.exe -m src.permutation.run --output-dir runs/phase6_3_permutation
+```
+
+The output directory must be new. Repeating the command requires another
+directory, for example `--output-dir runs/phase6_3_permutation_repeat`.
+The collection fingerprint must match Stage 6.2: 128 workloads, 645 processes,
+seed 1729. No reserved test collection is opened. There is no training or
+permutation augmentation.
+
+`src/permutation/transforms.py` defines lossless observation/workload
+permutations; `experiment.py` collects fixed states and replays whole workloads;
+`analysis.py` computes paired workload-bootstrap summaries; `plots.py` saves
+three figures; `run.py` verifies inputs, runs both experiments twice, and exports
+results. `tests/test_permutation.py` covers transformations, hidden future jobs,
+identity mapping, populated optimizer/replay preservation, reward accounting,
+SRTF invariance, repeatability, bootstrap weighting, and output preservation.
+
+Each workload uses its original arrangement plus seven distinct permutations,
+sampled with a local RNG seeded by `6301729 + 1000003 * workload_id`. Workload
+IDs and slots are zero-based. Every map is **new slot -> original slot**.
+Occupied means a slot allocated to a process definition, including completed
+and not-yet-arrived processes. Their six-feature blocks and masks move together;
+hidden future jobs retain zero blocks. Unused slots and the three global
+features stay fixed. The last-executed flag moves inside its process block.
+
+Fixed-state analysis samples up to eight evenly spaced multi-ready observations
+from each original DQN and SRTF trajectory. A workload with no multi-ready
+states contributes one single-ready fallback per source. Each frozen state is
+evaluated under all eight layouts in one network batch. Reported agreement
+excludes the identity arrangement. Destination-slot agreement conditions on
+where the **original selected process** moved, avoiding selection-based
+conditioning. Disagreement is classified using the smaller original/permuted
+top-two valid-Q margin: tied at <= 1e-6, close at <= 0.05, otherwise clear.
+These are explicit absolute reward-unit thresholds, not statistical equivalence
+tests. `action_agreement_by_permutation.csv` reports actual maps;
+`by_arrangement.csv` reports random draw numbers, which need not correspond to
+the same map across workloads.
+
+Full rollouts replay DQN at epsilon zero and existing SRTF on each arrangement.
+`permutation_rollouts.csv` contains workload metrics; `per_process_results.csv`
+remaps every PID to its original index. Timing means are process weighted;
+switches, preemptions, and mean rewards are workload weighted.
+`per_workload_sensitivity.csv` reports original/permuted waiting, min/max/range,
+population standard deviation over eight arrangements, and best/worst layouts.
+`by_process_count.csv` separates 4/5/6 processes. `permutation_summary.json`
+includes results, seeds, provenance, input hashes, preservation checks, and
+limitations. Additional CSVs record agreement by slot, unique-shortest choices,
+matched shortest-slot effects, and full-trajectory exposure associations.
+
+Confidence intervals use 5,000 paired percentile bootstrap draws with seed
+63021729, resampling **workloads**, retaining all their states and arrangements.
+The original-versus-permuted waiting delta divides sampled paired total-waiting
+differences by sampled process counts. Matched slot comparisons hold the state
+and shortest process identity fixed, comparing selection rates in slot 3 or 5
+against other slots among the seven sampled alternatives. Only states with
+both placements contribute. Whole-trajectory exposure slopes center both
+shortest-slot exposure and waiting within each workload; these correlations
+are observational because the decisions also change subsequent states.
+Intervals are descriptive, without multiplicity adjustment.
+
+The runner checks full policy/target weights, optimizer tensor state/counters,
+replay contents/RNG, action RNG, existing gradients, mode, workload definitions,
+prior Phase 5/6.2 artifacts, and protected simulator/adapter/baseline sources.
+It verifies original scores, negative waiting/reward identities, SRTF total
+waiting invariance, and exact deterministic repetition. The accompanying
+`analysis_report.md` in the initial run directory records the executed results.
+
+## Stage 6.3B: controlled replay permutation augmentation
+
+The workload audit is in `src/permutation/audit.py`. Phase 5 already shuffles
+definitions once per episode with the training RNG; no further workload shuffle
+is added. PID placement is uniform conditional on process count, with ordinary
+finite-sample fluctuations. Unused padding makes slots 4 and 5 less frequently
+occupied than slots 0..3. Ready-state exposure also depends on the policy.
+
+Replay augmentation is disabled by default. Enable it for an ordinary training
+run with:
+
+```powershell
+.\.venv\Scripts\python.exe -m src.training.train --episodes 10000 --replay-augmentation permutation --augmentation-seed 630342 --output-dir runs/augmented_example
+```
+
+`src/training/augmentation.py` applies one uniformly sampled occupied-slot map
+to both endpoints of a transition, inversely maps the action, and maps the
+next-state mask. Whole six-feature blocks move, including the last-executed
+flag. Future jobs retain hidden zero blocks. Unused slots and global features
+stay fixed. A separate seeded RNG supplies mappings. One transformed transition
+replaces each original replay insertion; optimizer scheduling, replay capacity,
+batch size, and live policy/environment observations/actions remain unchanged.
+
+Run the full controlled protocol in a **fresh** output directory:
+
+```powershell
+.\.venv\Scripts\python.exe -m src.permutation.controlled --output-dir runs/phase6_3b_repeat
+```
+
+It runs A (augmentation off) and B (on) from fresh identical seed-42
+initializations for 10,000 uninterrupted episodes each. All Phase 5 DQN and
+training hyperparameters remain unchanged, with greedy original-layout
+validation every 250 episodes. Both runs use the same exact workload sequence;
+no checkpoint is resumed. Best and final checkpoint files are reloaded to
+verify their logged scores. A's complete 6,000-episode prefix must exactly
+match the historical Phase 5 training and validation CSVs.
+
+`--phase train` runs only the two training experiments; `--phase evaluate`
+evaluates completed experiments without retraining. Existing run/evaluation
+directories are refused. Initial executed artifacts are under
+`runs/phase6_3b_controlled/`:
+
+- `workload_audit.json`, `training_comparison.json`, `controlled_summary.json`,
+  and `analysis_report.md` record the audit, controls, results, and limitations.
+- `original_10000/` and `augmented_10000/` each contain full training and
+  validation CSVs, best/final checkpoints and metadata, checkpoint verification,
+  optimizer diagnostics, validation Q/gradient health summaries, and five
+  standard training plots.
+- `evaluation/fixed_state_observations.npz` freezes the reference episode-5250
+  DQN/SRTF observations once. All three checkpoints use these same observations
+  and the exact saved Stage 6.3A permutation maps. They do not collect separate
+  policy-dependent state distributions for the agreement comparison.
+- Per-model evaluation directories contain original/alternative workload and
+  process metrics, agreement records, sensitivity summaries, process-count
+  groups, slot statistics, and the three Stage 6.3A-style figures.
+- Root comparison CSVs report original validation, pooled permutations,
+  process-count groups, SRTF optimality gaps, and paired B/A/reference bootstrap
+  contrasts. Root figures compare learning curves, stability, selected-checkpoint
+  metrics, and permutation consistency.
+
+Confidence intervals resample workloads, preserving all their paired states
+and arrangements. They describe workload variation conditional on selected
+checkpoints; a single training seed pair cannot establish between-seed
+reliability. These are model-selection validation results, not final-test
+estimates. The controlled protocol checks preservation of prior results and
+protected simulator, adapter, agent, baseline, and current training sources.
+No final test workloads or Phase 6.4 work are included.
+
+## Stage 6.4: frozen held-out evaluation
+
+The separate final evaluator freezes the three already-selected checkpoints
+(augmented 10k episode 9750, original 10k episode 9000, reference 6k episode
+5250), source/configuration hashes, and all prior experiment artifact hashes
+before generating test data. No prior final collection or seed was recorded;
+the single dedicated test seed is 6401729. It uses the existing training slot
+sampler for 256 workloads. Bootstrap seed 64021729 supplies 5,000 paired
+whole-workload resamples, recomputing process-weighted timing differences.
+
+```powershell
+.\.venv\Scripts\python.exe -m src.final_evaluation.run --output-dir runs/phase6_4_final_test
+```
+
+Existing output directories are refused. All six policies (SRTF, the three
+fixed DQNs, FCFS, RR quantum 2) replay identical immutable workloads through
+the existing simulators. A same-collection repeat verifies exact outcomes and
+timelines, without creating another test sample. Runtime checks cover masks,
+arrivals, completion, CPU accounting, timing/reward identities, per-workload
+SRTF inequalities, and preservation of agent and global RNG state, optimizer,
+replay, weights, and all prior artifacts.
+
+The new directory records the frozen manifests, exact workloads and digest,
+per-process/per-workload results, six-policy aggregates, process-count groups,
+paired comparisons and percentile intervals, verification report, comparison
+charts, technical report, and selected unit-step timelines for later Gantts.
+No training, tuning, test-based model selection, polished Gantt rendering,
+Stage 6.5, or Phase 7 is performed. Workload intervals condition on the fixed
+checkpoints and do not quantify variability across independent training seeds.
+
+## Stage 6.5: figures and technical findings from saved results
+
+```powershell
+.\.venv\Scripts\python.exe -m src.reporting.run --output-dir runs/phase6_5_final_visualizations
+```
+
+This presentation-only package imports no simulator, scheduler, agent, training,
+or workload-generation modules. It reads the existing Phase 5, Stage 6.3A,
+Stage 6.3B, and Stage 6.4 CSV/JSON records and checkpoint metadata. It does not
+load checkpoints, execute policies, regenerate test workloads, or draw new
+bootstrap samples. Existing output directories are refused; missing required
+source files produce explicit errors before creating output.
+
+Outputs include a consolidated six-policy final-test CSV, the twelve-section
+`experimental_findings.md`, and 300-DPI PNG / SVG figures for the held-out
+benchmarks, saved paired interval, two recorded Gantt cases, training and
+validation histories, and permutation robustness. Validation/permutation
+figures are labeled separately from final-test figures. All axes include units,
+and footers record data roles, sample sizes, and sources.
+
+`figure_manifest.json` records exact plotted values, source/configuration and
+prior-artifact hashes, deterministic export verification, and timing/metric
+checks. Gantt merging preserves recorded execution intervals and per-process
+bursts. No Phase 7 work or final academic report is produced.

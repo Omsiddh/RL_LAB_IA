@@ -1,0 +1,1642 @@
+[
+  {
+    "episode": 0,
+    "environment_steps": 0,
+    "optimizer_updates": 0,
+    "training_epsilon": 1.0,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 9.066666666666666,
+    "mean_turnaround_time": 14.48062015503876,
+    "mean_reward": -45.6875,
+    "interval_mean_loss": null,
+    "interval_maximum_loss": null,
+    "interval_maximum_gradient_norm": null,
+    "interval_clipping_count": 0,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -0.20419849455356598,
+      "maximum": 0.22043877840042114,
+      "mean_absolute": 0.08452909165490512,
+      "maximum_absolute": 0.22043877840042114
+    },
+    "policy_valid_q": {
+      "count": 9340,
+      "nonfinite": 0,
+      "minimum": -0.20419849455356598,
+      "maximum": 0.21296928822994232,
+      "mean_absolute": 0.08554345804846963,
+      "maximum_absolute": 0.21296928822994232
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -0.20419849455356598,
+      "maximum": 0.22043877840042114,
+      "mean_absolute": 0.08452909165490512,
+      "maximum_absolute": 0.22043877840042114
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 250,
+    "environment_steps": 7010,
+    "optimizer_updates": 1503,
+    "training_epsilon": 0.933405,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 7.8387596899224805,
+    "mean_turnaround_time": 13.252713178294574,
+    "mean_reward": -39.5,
+    "interval_mean_loss": 0.45559420384818605,
+    "interval_maximum_loss": 2.028928756713867,
+    "interval_maximum_gradient_norm": 7.987565994262695,
+    "interval_clipping_count": 0,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -34.285972595214844,
+      "maximum": 0.3290592133998871,
+      "mean_absolute": 9.09540064323034,
+      "maximum_absolute": 34.285972595214844
+    },
+    "policy_valid_q": {
+      "count": 8548,
+      "nonfinite": 0,
+      "minimum": -34.285972595214844,
+      "maximum": 0.17557866871356964,
+      "mean_absolute": 13.232545811864236,
+      "maximum_absolute": 34.285972595214844
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -32.905303955078125,
+      "maximum": 0.35726696252822876,
+      "mean_absolute": 8.584212974154354,
+      "maximum_absolute": 32.905303955078125
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 500,
+    "environment_steps": 13856,
+    "optimizer_updates": 3215,
+    "training_epsilon": 0.868368,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.868217054263566,
+    "mean_turnaround_time": 12.28217054263566,
+    "mean_reward": -34.609375,
+    "interval_mean_loss": 1.3542170790589858,
+    "interval_maximum_loss": 3.0248477458953857,
+    "interval_maximum_gradient_norm": 11.640116691589355,
+    "interval_clipping_count": 10,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -66.38436889648438,
+      "maximum": 0.7634427547454834,
+      "mean_absolute": 15.140196486813528,
+      "maximum_absolute": 66.38436889648438
+    },
+    "policy_valid_q": {
+      "count": 7922,
+      "nonfinite": 0,
+      "minimum": -66.38436889648438,
+      "maximum": 0.2613128125667572,
+      "mean_absolute": 22.7409398367596,
+      "maximum_absolute": 66.38436889648438
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -62.11827087402344,
+      "maximum": 0.6604538559913635,
+      "mean_absolute": 14.173759473461475,
+      "maximum_absolute": 62.11827087402344
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 750,
+    "environment_steps": 20751,
+    "optimizer_updates": 4938,
+    "training_epsilon": 0.8028655,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.831007751937984,
+    "mean_turnaround_time": 12.244961240310078,
+    "mean_reward": -34.421875,
+    "interval_mean_loss": 2.2088227916511074,
+    "interval_maximum_loss": 4.809230327606201,
+    "interval_maximum_gradient_norm": 16.12727165222168,
+    "interval_clipping_count": 22,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -98.40190887451172,
+      "maximum": 1.5048799514770508,
+      "mean_absolute": 21.004198360393048,
+      "maximum_absolute": 98.40190887451172
+    },
+    "policy_valid_q": {
+      "count": 7898,
+      "nonfinite": 0,
+      "minimum": -98.40190887451172,
+      "maximum": 0.45336270332336426,
+      "mean_absolute": 32.02977988702356,
+      "maximum_absolute": 98.40190887451172
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -94.02818298339844,
+      "maximum": 1.442399263381958,
+      "mean_absolute": 20.348544709238734,
+      "maximum_absolute": 94.02818298339844
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 1000,
+    "environment_steps": 27630,
+    "optimizer_updates": 6658,
+    "training_epsilon": 0.737515,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 7.079069767441861,
+    "mean_turnaround_time": 12.493023255813954,
+    "mean_reward": -35.671875,
+    "interval_mean_loss": 2.8885985691186993,
+    "interval_maximum_loss": 6.2004594802856445,
+    "interval_maximum_gradient_norm": 15.165107727050781,
+    "interval_clipping_count": 39,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -129.6747283935547,
+      "maximum": 2.022181987762451,
+      "mean_absolute": 25.19946717415997,
+      "maximum_absolute": 129.6747283935547
+    },
+    "policy_valid_q": {
+      "count": 8058,
+      "nonfinite": 0,
+      "minimum": -129.6747283935547,
+      "maximum": 0.6056333184242249,
+      "mean_absolute": 38.728377143876685,
+      "maximum_absolute": 129.6747283935547
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -125.95610809326172,
+      "maximum": 1.9774385690689087,
+      "mean_absolute": 24.964442918195704,
+      "maximum_absolute": 125.95610809326172
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 1250,
+    "environment_steps": 34469,
+    "optimizer_updates": 8368,
+    "training_epsilon": 0.6725445000000001,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 7.703875968992248,
+    "mean_turnaround_time": 13.11782945736434,
+    "mean_reward": -38.8203125,
+    "interval_mean_loss": 3.2001014915126107,
+    "interval_maximum_loss": 7.042623996734619,
+    "interval_maximum_gradient_norm": 17.375335693359375,
+    "interval_clipping_count": 114,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -147.22744750976562,
+      "maximum": 2.7046124935150146,
+      "mean_absolute": 28.091358857698214,
+      "maximum_absolute": 147.22744750976562
+    },
+    "policy_valid_q": {
+      "count": 8461,
+      "nonfinite": 0,
+      "minimum": -147.22744750976562,
+      "maximum": 0.7848992347717285,
+      "mean_absolute": 44.20328790342992,
+      "maximum_absolute": 147.22744750976562
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -145.7123565673828,
+      "maximum": 2.6744332313537598,
+      "mean_absolute": 28.25079541200037,
+      "maximum_absolute": 145.7123565673828
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 1500,
+    "environment_steps": 41426,
+    "optimizer_updates": 10107,
+    "training_epsilon": 0.606453,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 7.981395348837209,
+    "mean_turnaround_time": 13.395348837209303,
+    "mean_reward": -40.21875,
+    "interval_mean_loss": 3.0996842489906125,
+    "interval_maximum_loss": 6.577782154083252,
+    "interval_maximum_gradient_norm": 20.943828582763672,
+    "interval_clipping_count": 149,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -153.19021606445312,
+      "maximum": 2.1568572521209717,
+      "mean_absolute": 26.202157618527725,
+      "maximum_absolute": 153.19021606445312
+    },
+    "policy_valid_q": {
+      "count": 8640,
+      "nonfinite": 0,
+      "minimum": -153.19021606445312,
+      "maximum": 0.459953248500824,
+      "mean_absolute": 40.679149422078844,
+      "maximum_absolute": 153.19021606445312
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -153.10943603515625,
+      "maximum": 2.0514519214630127,
+      "mean_absolute": 26.553334589786232,
+      "maximum_absolute": 153.10943603515625
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 1750,
+    "environment_steps": 48304,
+    "optimizer_updates": 11827,
+    "training_epsilon": 0.541112,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 7.982945736434108,
+    "mean_turnaround_time": 13.396899224806202,
+    "mean_reward": -40.2265625,
+    "interval_mean_loss": 2.9294257323409236,
+    "interval_maximum_loss": 7.385960578918457,
+    "interval_maximum_gradient_norm": 16.916481018066406,
+    "interval_clipping_count": 154,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -148.44842529296875,
+      "maximum": 2.0213022232055664,
+      "mean_absolute": 24.376346531031604,
+      "maximum_absolute": 148.44842529296875
+    },
+    "policy_valid_q": {
+      "count": 8641,
+      "nonfinite": 0,
+      "minimum": -148.44842529296875,
+      "maximum": 0.4010174572467804,
+      "mean_absolute": 37.9746736226964,
+      "maximum_absolute": 148.44842529296875
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -148.00584411621094,
+      "maximum": 2.1203129291534424,
+      "mean_absolute": 24.41851558912305,
+      "maximum_absolute": 148.00584411621094
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 2000,
+    "environment_steps": 55162,
+    "optimizer_updates": 13541,
+    "training_epsilon": 0.4759610000000001,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 7.862015503875969,
+    "mean_turnaround_time": 13.275968992248062,
+    "mean_reward": -39.6171875,
+    "interval_mean_loss": 2.5403042579789146,
+    "interval_maximum_loss": 6.700434684753418,
+    "interval_maximum_gradient_norm": 16.493404388427734,
+    "interval_clipping_count": 71,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -137.26327514648438,
+      "maximum": 2.526441812515259,
+      "mean_absolute": 22.351573549616056,
+      "maximum_absolute": 137.26327514648438
+    },
+    "policy_valid_q": {
+      "count": 8563,
+      "nonfinite": 0,
+      "minimum": -137.26327514648438,
+      "maximum": 0.6733689904212952,
+      "mean_absolute": 34.89079626995305,
+      "maximum_absolute": 137.26327514648438
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -139.09535217285156,
+      "maximum": 2.503964900970459,
+      "mean_absolute": 22.53257324220826,
+      "maximum_absolute": 139.09535217285156
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 2250,
+    "environment_steps": 62096,
+    "optimizer_updates": 15275,
+    "training_epsilon": 0.4100880000000001,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 7.454263565891472,
+    "mean_turnaround_time": 12.868217054263566,
+    "mean_reward": -37.5625,
+    "interval_mean_loss": 2.3203734219280494,
+    "interval_maximum_loss": 6.873915195465088,
+    "interval_maximum_gradient_norm": 14.168015480041504,
+    "interval_clipping_count": 25,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -128.09136962890625,
+      "maximum": 2.3577957153320312,
+      "mean_absolute": 20.84539329160788,
+      "maximum_absolute": 128.09136962890625
+    },
+    "policy_valid_q": {
+      "count": 8300,
+      "nonfinite": 0,
+      "minimum": -128.09136962890625,
+      "maximum": 0.6216404438018799,
+      "mean_absolute": 32.397621665936725,
+      "maximum_absolute": 128.09136962890625
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -128.4390106201172,
+      "maximum": 2.5041728019714355,
+      "mean_absolute": 20.54531381836708,
+      "maximum_absolute": 128.4390106201172
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 2500,
+    "environment_steps": 68884,
+    "optimizer_updates": 16972,
+    "training_epsilon": 0.3456020000000001,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 7.508527131782945,
+    "mean_turnaround_time": 12.922480620155039,
+    "mean_reward": -37.8359375,
+    "interval_mean_loss": 2.2442386326329036,
+    "interval_maximum_loss": 5.860449314117432,
+    "interval_maximum_gradient_norm": 11.784709930419922,
+    "interval_clipping_count": 7,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -122.29896545410156,
+      "maximum": 2.245161533355713,
+      "mean_absolute": 21.361286752723917,
+      "maximum_absolute": 122.29896545410156
+    },
+    "policy_valid_q": {
+      "count": 8335,
+      "nonfinite": 0,
+      "minimum": -122.29896545410156,
+      "maximum": 0.7826458215713501,
+      "mean_absolute": 33.69007827919345,
+      "maximum_absolute": 122.29896545410156
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -121.7956771850586,
+      "maximum": 2.249674081802368,
+      "mean_absolute": 21.451774345654687,
+      "maximum_absolute": 121.7956771850586
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 2750,
+    "environment_steps": 75560,
+    "optimizer_updates": 18641,
+    "training_epsilon": 0.28218,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 7.367441860465116,
+    "mean_turnaround_time": 12.78139534883721,
+    "mean_reward": -37.125,
+    "interval_mean_loss": 2.2570887811888185,
+    "interval_maximum_loss": 6.204607963562012,
+    "interval_maximum_gradient_norm": 13.653780937194824,
+    "interval_clipping_count": 7,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -129.22401428222656,
+      "maximum": 2.3576855659484863,
+      "mean_absolute": 20.280355154468744,
+      "maximum_absolute": 129.22401428222656
+    },
+    "policy_valid_q": {
+      "count": 8244,
+      "nonfinite": 0,
+      "minimum": -129.22401428222656,
+      "maximum": 1.1431477069854736,
+      "mean_absolute": 32.03366327180524,
+      "maximum_absolute": 129.22401428222656
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -127.7275619506836,
+      "maximum": 2.284282922744751,
+      "mean_absolute": 20.419361283703957,
+      "maximum_absolute": 127.7275619506836
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 3000,
+    "environment_steps": 82415,
+    "optimizer_updates": 20354,
+    "training_epsilon": 0.21705750000000001,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 7.452713178294574,
+    "mean_turnaround_time": 12.866666666666667,
+    "mean_reward": -37.5546875,
+    "interval_mean_loss": 2.2023165839600827,
+    "interval_maximum_loss": 5.821013450622559,
+    "interval_maximum_gradient_norm": 11.485024452209473,
+    "interval_clipping_count": 18,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -133.75442504882812,
+      "maximum": 2.6505930423736572,
+      "mean_absolute": 19.174781004676,
+      "maximum_absolute": 133.75442504882812
+    },
+    "policy_valid_q": {
+      "count": 8299,
+      "nonfinite": 0,
+      "minimum": -133.75442504882812,
+      "maximum": 0.6587637662887573,
+      "mean_absolute": 30.132786516507306,
+      "maximum_absolute": 133.75442504882812
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -133.59327697753906,
+      "maximum": 2.5220751762390137,
+      "mean_absolute": 19.449611180542664,
+      "maximum_absolute": 133.59327697753906
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 3250,
+    "environment_steps": 89088,
+    "optimizer_updates": 22023,
+    "training_epsilon": 0.15366400000000002,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 7.285271317829458,
+    "mean_turnaround_time": 12.699224806201551,
+    "mean_reward": -36.7109375,
+    "interval_mean_loss": 2.0613893767614577,
+    "interval_maximum_loss": 5.618722915649414,
+    "interval_maximum_gradient_norm": 16.05319595336914,
+    "interval_clipping_count": 21,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -134.54957580566406,
+      "maximum": 2.500547409057617,
+      "mean_absolute": 18.220566593556487,
+      "maximum_absolute": 134.54957580566406
+    },
+    "policy_valid_q": {
+      "count": 8191,
+      "nonfinite": 0,
+      "minimum": -134.54957580566406,
+      "maximum": 0.6847957372665405,
+      "mean_absolute": 28.411854852198783,
+      "maximum_absolute": 134.54957580566406
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -136.01095581054688,
+      "maximum": 2.4388346672058105,
+      "mean_absolute": 18.31355390153006,
+      "maximum_absolute": 136.01095581054688
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 3500,
+    "environment_steps": 95899,
+    "optimizer_updates": 23725,
+    "training_epsilon": 0.08895950000000008,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 7.1069767441860465,
+    "mean_turnaround_time": 12.52093023255814,
+    "mean_reward": -35.8125,
+    "interval_mean_loss": 1.975275483520835,
+    "interval_maximum_loss": 5.469118118286133,
+    "interval_maximum_gradient_norm": 13.276102066040039,
+    "interval_clipping_count": 15,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -133.40081787109375,
+      "maximum": 2.164914608001709,
+      "mean_absolute": 17.107374185587073,
+      "maximum_absolute": 133.40081787109375
+    },
+    "policy_valid_q": {
+      "count": 8076,
+      "nonfinite": 0,
+      "minimum": -133.40081787109375,
+      "maximum": 0.8717591166496277,
+      "mean_absolute": 26.51940669077566,
+      "maximum_absolute": 133.40081787109375
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -133.91973876953125,
+      "maximum": 2.1880972385406494,
+      "mean_absolute": 17.23450329031336,
+      "maximum_absolute": 133.91973876953125
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 3750,
+    "environment_steps": 103052,
+    "optimizer_updates": 25514,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 7.2046511627906975,
+    "mean_turnaround_time": 12.61860465116279,
+    "mean_reward": -36.3046875,
+    "interval_mean_loss": 1.803633660777712,
+    "interval_maximum_loss": 4.530829906463623,
+    "interval_maximum_gradient_norm": 11.151083946228027,
+    "interval_clipping_count": 1,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -140.9398956298828,
+      "maximum": 2.2480013370513916,
+      "mean_absolute": 16.75937421920163,
+      "maximum_absolute": 140.9398956298828
+    },
+    "policy_valid_q": {
+      "count": 8139,
+      "nonfinite": 0,
+      "minimum": -140.9398956298828,
+      "maximum": 0.9182983636856079,
+      "mean_absolute": 25.943007044376063,
+      "maximum_absolute": 140.9398956298828
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -142.63641357421875,
+      "maximum": 2.4456117153167725,
+      "mean_absolute": 16.737148314097105,
+      "maximum_absolute": 142.63641357421875
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 4000,
+    "environment_steps": 109869,
+    "optimizer_updates": 27218,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.956589147286822,
+    "mean_turnaround_time": 12.370542635658914,
+    "mean_reward": -35.0546875,
+    "interval_mean_loss": 1.6877447578863638,
+    "interval_maximum_loss": 4.366732597351074,
+    "interval_maximum_gradient_norm": 12.904109001159668,
+    "interval_clipping_count": 10,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -113.47047424316406,
+      "maximum": 2.197695255279541,
+      "mean_absolute": 15.98446133339784,
+      "maximum_absolute": 113.47047424316406
+    },
+    "policy_valid_q": {
+      "count": 7979,
+      "nonfinite": 0,
+      "minimum": -113.47047424316406,
+      "maximum": 0.6961538791656494,
+      "mean_absolute": 24.299913921340814,
+      "maximum_absolute": 113.47047424316406
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -116.17723083496094,
+      "maximum": 2.2859671115875244,
+      "mean_absolute": 16.01546423469036,
+      "maximum_absolute": 116.17723083496094
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 4250,
+    "environment_steps": 116895,
+    "optimizer_updates": 28974,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 7.013953488372093,
+    "mean_turnaround_time": 12.427906976744186,
+    "mean_reward": -35.34375,
+    "interval_mean_loss": 1.6120171038378752,
+    "interval_maximum_loss": 4.056426048278809,
+    "interval_maximum_gradient_norm": 10.482961654663086,
+    "interval_clipping_count": 3,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -122.10420227050781,
+      "maximum": 2.1368539333343506,
+      "mean_absolute": 15.864078284265796,
+      "maximum_absolute": 122.10420227050781
+    },
+    "policy_valid_q": {
+      "count": 8016,
+      "nonfinite": 0,
+      "minimum": -122.10420227050781,
+      "maximum": 0.6392378807067871,
+      "mean_absolute": 24.292739292669914,
+      "maximum_absolute": 122.10420227050781
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -122.2619857788086,
+      "maximum": 2.0212273597717285,
+      "mean_absolute": 15.972138502390052,
+      "maximum_absolute": 122.2619857788086
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 4500,
+    "environment_steps": 123748,
+    "optimizer_updates": 30688,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 7.125581395348838,
+    "mean_turnaround_time": 12.53953488372093,
+    "mean_reward": -35.90625,
+    "interval_mean_loss": 1.6190642801177544,
+    "interval_maximum_loss": 4.132145881652832,
+    "interval_maximum_gradient_norm": 10.651512145996094,
+    "interval_clipping_count": 2,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -111.8609390258789,
+      "maximum": 2.1722700595855713,
+      "mean_absolute": 15.676543443779874,
+      "maximum_absolute": 111.8609390258789
+    },
+    "policy_valid_q": {
+      "count": 8088,
+      "nonfinite": 0,
+      "minimum": -111.8609390258789,
+      "maximum": 0.8956493735313416,
+      "mean_absolute": 24.137955187918465,
+      "maximum_absolute": 111.8609390258789
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -112.56927490234375,
+      "maximum": 2.186751365661621,
+      "mean_absolute": 15.708372616836018,
+      "maximum_absolute": 112.56927490234375
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 4750,
+    "environment_steps": 130613,
+    "optimizer_updates": 32404,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.7193798449612405,
+    "mean_turnaround_time": 12.133333333333333,
+    "mean_reward": -33.859375,
+    "interval_mean_loss": 1.5549690375985938,
+    "interval_maximum_loss": 4.113953590393066,
+    "interval_maximum_gradient_norm": 10.291154861450195,
+    "interval_clipping_count": 1,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -109.28821563720703,
+      "maximum": 2.1116116046905518,
+      "mean_absolute": 14.87412349000835,
+      "maximum_absolute": 109.28821563720703
+    },
+    "policy_valid_q": {
+      "count": 7826,
+      "nonfinite": 0,
+      "minimum": -109.28821563720703,
+      "maximum": 0.901309609413147,
+      "mean_absolute": 22.829798153441885,
+      "maximum_absolute": 109.28821563720703
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -109.85857391357422,
+      "maximum": 2.0141043663024902,
+      "mean_absolute": 14.8650572718167,
+      "maximum_absolute": 109.85857391357422
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 5000,
+    "environment_steps": 137777,
+    "optimizer_updates": 34195,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.63875968992248,
+    "mean_turnaround_time": 12.052713178294574,
+    "mean_reward": -33.453125,
+    "interval_mean_loss": 1.4894297832320482,
+    "interval_maximum_loss": 4.164356708526611,
+    "interval_maximum_gradient_norm": 10.292086601257324,
+    "interval_clipping_count": 1,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -111.6746826171875,
+      "maximum": 2.3675053119659424,
+      "mean_absolute": 14.690765087279757,
+      "maximum_absolute": 111.6746826171875
+    },
+    "policy_valid_q": {
+      "count": 7774,
+      "nonfinite": 0,
+      "minimum": -111.6746826171875,
+      "maximum": 0.8807348012924194,
+      "mean_absolute": 22.761774322151723,
+      "maximum_absolute": 111.6746826171875
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -111.32495880126953,
+      "maximum": 2.2922897338867188,
+      "mean_absolute": 14.542479242716993,
+      "maximum_absolute": 111.32495880126953
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 5250,
+    "environment_steps": 144624,
+    "optimizer_updates": 35907,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.658914728682171,
+    "mean_turnaround_time": 12.072868217054264,
+    "mean_reward": -33.5546875,
+    "interval_mean_loss": 1.4626883946393974,
+    "interval_maximum_loss": 3.780709743499756,
+    "interval_maximum_gradient_norm": 13.76427173614502,
+    "interval_clipping_count": 4,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -114.07728576660156,
+      "maximum": 2.3358917236328125,
+      "mean_absolute": 14.705681533415799,
+      "maximum_absolute": 114.07728576660156
+    },
+    "policy_valid_q": {
+      "count": 7787,
+      "nonfinite": 0,
+      "minimum": -114.07728576660156,
+      "maximum": 0.7453258037567139,
+      "mean_absolute": 23.115517715566483,
+      "maximum_absolute": 114.07728576660156
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -113.12326049804688,
+      "maximum": 2.3085384368896484,
+      "mean_absolute": 14.578457166218534,
+      "maximum_absolute": 113.12326049804688
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 5500,
+    "environment_steps": 151620,
+    "optimizer_updates": 37656,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.7410852713178295,
+    "mean_turnaround_time": 12.155038759689923,
+    "mean_reward": -33.96875,
+    "interval_mean_loss": 1.42760390634534,
+    "interval_maximum_loss": 3.753725528717041,
+    "interval_maximum_gradient_norm": 13.025571823120117,
+    "interval_clipping_count": 6,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -119.40691375732422,
+      "maximum": 2.8233771324157715,
+      "mean_absolute": 14.60099599542151,
+      "maximum_absolute": 119.40691375732422
+    },
+    "policy_valid_q": {
+      "count": 7840,
+      "nonfinite": 0,
+      "minimum": -119.40691375732422,
+      "maximum": 0.9419568181037903,
+      "mean_absolute": 22.85733935283687,
+      "maximum_absolute": 119.40691375732422
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -118.27776336669922,
+      "maximum": 2.657841920852661,
+      "mean_absolute": 14.762366026253043,
+      "maximum_absolute": 118.27776336669922
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 5750,
+    "environment_steps": 158438,
+    "optimizer_updates": 39360,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.496124031007752,
+    "mean_turnaround_time": 11.910077519379845,
+    "mean_reward": -32.734375,
+    "interval_mean_loss": 1.3474107899926078,
+    "interval_maximum_loss": 3.309006690979004,
+    "interval_maximum_gradient_norm": 12.375600814819336,
+    "interval_clipping_count": 4,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -120.31446075439453,
+      "maximum": 3.3294711112976074,
+      "mean_absolute": 13.390088298474305,
+      "maximum_absolute": 120.31446075439453
+    },
+    "policy_valid_q": {
+      "count": 7682,
+      "nonfinite": 0,
+      "minimum": -120.31446075439453,
+      "maximum": 0.9080544114112854,
+      "mean_absolute": 21.083453499655555,
+      "maximum_absolute": 120.31446075439453
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -119.21170806884766,
+      "maximum": 3.285090923309326,
+      "mean_absolute": 13.395526082888274,
+      "maximum_absolute": 119.21170806884766
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 6000,
+    "environment_steps": 165247,
+    "optimizer_updates": 41062,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.55968992248062,
+    "mean_turnaround_time": 11.973643410852713,
+    "mean_reward": -33.0546875,
+    "interval_mean_loss": 1.2597125451902385,
+    "interval_maximum_loss": 3.931804656982422,
+    "interval_maximum_gradient_norm": 10.939737319946289,
+    "interval_clipping_count": 2,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -117.91963195800781,
+      "maximum": 2.862581729888916,
+      "mean_absolute": 13.030730734772357,
+      "maximum_absolute": 117.91963195800781
+    },
+    "policy_valid_q": {
+      "count": 7723,
+      "nonfinite": 0,
+      "minimum": -117.91963195800781,
+      "maximum": 0.7324132919311523,
+      "mean_absolute": 20.245577796361736,
+      "maximum_absolute": 117.91963195800781
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -119.18048095703125,
+      "maximum": 2.9565157890319824,
+      "mean_absolute": 13.18869199124444,
+      "maximum_absolute": 119.18048095703125
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 6250,
+    "environment_steps": 172107,
+    "optimizer_updates": 42777,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.434108527131783,
+    "mean_turnaround_time": 11.848062015503876,
+    "mean_reward": -32.421875,
+    "interval_mean_loss": 1.178340371974008,
+    "interval_maximum_loss": 3.724508285522461,
+    "interval_maximum_gradient_norm": 9.677069664001465,
+    "interval_clipping_count": 0,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -115.15372467041016,
+      "maximum": 3.4337801933288574,
+      "mean_absolute": 12.010888093912497,
+      "maximum_absolute": 115.15372467041016
+    },
+    "policy_valid_q": {
+      "count": 7642,
+      "nonfinite": 0,
+      "minimum": -115.15372467041016,
+      "maximum": 0.8604426383972168,
+      "mean_absolute": 18.844423094124295,
+      "maximum_absolute": 115.15372467041016
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -118.00689697265625,
+      "maximum": 3.2461202144622803,
+      "mean_absolute": 12.099793364455673,
+      "maximum_absolute": 118.00689697265625
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 6500,
+    "environment_steps": 178919,
+    "optimizer_updates": 44480,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.443410852713178,
+    "mean_turnaround_time": 11.85736434108527,
+    "mean_reward": -32.46875,
+    "interval_mean_loss": 1.0611993077742095,
+    "interval_maximum_loss": 3.4562392234802246,
+    "interval_maximum_gradient_norm": 8.671841621398926,
+    "interval_clipping_count": 0,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -112.43202209472656,
+      "maximum": 3.683061122894287,
+      "mean_absolute": 12.234442630174643,
+      "maximum_absolute": 112.43202209472656
+    },
+    "policy_valid_q": {
+      "count": 7648,
+      "nonfinite": 0,
+      "minimum": -112.43202209472656,
+      "maximum": 0.9042285680770874,
+      "mean_absolute": 19.031947793267573,
+      "maximum_absolute": 112.43202209472656
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -113.75990295410156,
+      "maximum": 3.7551207542419434,
+      "mean_absolute": 12.265367531151137,
+      "maximum_absolute": 113.75990295410156
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 6750,
+    "environment_steps": 185868,
+    "optimizer_updates": 46218,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.406201550387597,
+    "mean_turnaround_time": 11.82015503875969,
+    "mean_reward": -32.28125,
+    "interval_mean_loss": 1.0405374117735753,
+    "interval_maximum_loss": 3.472252368927002,
+    "interval_maximum_gradient_norm": 11.074585914611816,
+    "interval_clipping_count": 1,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -107.07599639892578,
+      "maximum": 3.5744946002960205,
+      "mean_absolute": 11.953893756432763,
+      "maximum_absolute": 107.07599639892578
+    },
+    "policy_valid_q": {
+      "count": 7624,
+      "nonfinite": 0,
+      "minimum": -107.07599639892578,
+      "maximum": 2.489341974258423,
+      "mean_absolute": 18.52747387077624,
+      "maximum_absolute": 107.07599639892578
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -111.0199203491211,
+      "maximum": 3.6587562561035156,
+      "mean_absolute": 12.130909086359042,
+      "maximum_absolute": 111.0199203491211
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 7000,
+    "environment_steps": 192879,
+    "optimizer_updates": 47970,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.350387596899225,
+    "mean_turnaround_time": 11.764341085271317,
+    "mean_reward": -32.0,
+    "interval_mean_loss": 1.0372697283092835,
+    "interval_maximum_loss": 3.0473828315734863,
+    "interval_maximum_gradient_norm": 10.1942720413208,
+    "interval_clipping_count": 1,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -106.84185791015625,
+      "maximum": 2.689913749694824,
+      "mean_absolute": 11.890067965544706,
+      "maximum_absolute": 106.84185791015625
+    },
+    "policy_valid_q": {
+      "count": 7588,
+      "nonfinite": 0,
+      "minimum": -106.84185791015625,
+      "maximum": 1.8815191984176636,
+      "mean_absolute": 18.468638723615005,
+      "maximum_absolute": 106.84185791015625
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -105.2226791381836,
+      "maximum": 2.835392475128174,
+      "mean_absolute": 11.781762003288407,
+      "maximum_absolute": 105.2226791381836
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 7250,
+    "environment_steps": 199570,
+    "optimizer_updates": 49643,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.328682170542636,
+    "mean_turnaround_time": 11.742635658914729,
+    "mean_reward": -31.890625,
+    "interval_mean_loss": 0.9852835414380067,
+    "interval_maximum_loss": 3.497727155685425,
+    "interval_maximum_gradient_norm": 10.696074485778809,
+    "interval_clipping_count": 1,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -102.51134490966797,
+      "maximum": 2.883694648742676,
+      "mean_absolute": 11.450868110189164,
+      "maximum_absolute": 102.51134490966797
+    },
+    "policy_valid_q": {
+      "count": 7574,
+      "nonfinite": 0,
+      "minimum": -102.51134490966797,
+      "maximum": 2.744509220123291,
+      "mean_absolute": 17.743391042677054,
+      "maximum_absolute": 102.51134490966797
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -103.76029205322266,
+      "maximum": 3.117011070251465,
+      "mean_absolute": 11.508984234985554,
+      "maximum_absolute": 103.76029205322266
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 7500,
+    "environment_steps": 206248,
+    "optimizer_updates": 51313,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.339534883720931,
+    "mean_turnaround_time": 11.753488372093024,
+    "mean_reward": -31.9453125,
+    "interval_mean_loss": 0.9160487493399732,
+    "interval_maximum_loss": 2.598055124282837,
+    "interval_maximum_gradient_norm": 9.533117294311523,
+    "interval_clipping_count": 0,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -100.14534759521484,
+      "maximum": 3.111107349395752,
+      "mean_absolute": 11.253610310389021,
+      "maximum_absolute": 100.14534759521484
+    },
+    "policy_valid_q": {
+      "count": 7581,
+      "nonfinite": 0,
+      "minimum": -100.14534759521484,
+      "maximum": 3.111107349395752,
+      "mean_absolute": 17.579167516161796,
+      "maximum_absolute": 100.14534759521484
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -100.03693389892578,
+      "maximum": 3.1322834491729736,
+      "mean_absolute": 11.270786686464376,
+      "maximum_absolute": 100.03693389892578
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 7750,
+    "environment_steps": 213073,
+    "optimizer_updates": 53019,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.232558139534884,
+    "mean_turnaround_time": 11.646511627906976,
+    "mean_reward": -31.40625,
+    "interval_mean_loss": 0.8856120664246406,
+    "interval_maximum_loss": 2.5989909172058105,
+    "interval_maximum_gradient_norm": 9.408910751342773,
+    "interval_clipping_count": 0,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -99.83104705810547,
+      "maximum": 3.4476430416107178,
+      "mean_absolute": 10.758991044138442,
+      "maximum_absolute": 99.83104705810547
+    },
+    "policy_valid_q": {
+      "count": 7512,
+      "nonfinite": 0,
+      "minimum": -99.83104705810547,
+      "maximum": 2.794654369354248,
+      "mean_absolute": 16.930061967706227,
+      "maximum_absolute": 99.83104705810547
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -100.16928100585938,
+      "maximum": 3.4971585273742676,
+      "mean_absolute": 10.832229032639574,
+      "maximum_absolute": 100.16928100585938
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 8000,
+    "environment_steps": 219900,
+    "optimizer_updates": 54726,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.322480620155039,
+    "mean_turnaround_time": 11.736434108527131,
+    "mean_reward": -31.859375,
+    "interval_mean_loss": 0.8631815053413469,
+    "interval_maximum_loss": 2.721445322036743,
+    "interval_maximum_gradient_norm": 9.214742660522461,
+    "interval_clipping_count": 0,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -100.8687515258789,
+      "maximum": 3.2773032188415527,
+      "mean_absolute": 11.066884944194792,
+      "maximum_absolute": 100.8687515258789
+    },
+    "policy_valid_q": {
+      "count": 7570,
+      "nonfinite": 0,
+      "minimum": -100.8687515258789,
+      "maximum": 3.2773032188415527,
+      "mean_absolute": 17.313777881297757,
+      "maximum_absolute": 100.8687515258789
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -100.3541488647461,
+      "maximum": 3.602886199951172,
+      "mean_absolute": 10.989212240336755,
+      "maximum_absolute": 100.3541488647461
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 8250,
+    "environment_steps": 226452,
+    "optimizer_updates": 56364,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.221705426356589,
+    "mean_turnaround_time": 11.635658914728682,
+    "mean_reward": -31.3515625,
+    "interval_mean_loss": 0.8617442995218858,
+    "interval_maximum_loss": 2.376300811767578,
+    "interval_maximum_gradient_norm": 10.017315864562988,
+    "interval_clipping_count": 1,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -98.85808563232422,
+      "maximum": 2.863905906677246,
+      "mean_absolute": 10.936061862947184,
+      "maximum_absolute": 98.85808563232422
+    },
+    "policy_valid_q": {
+      "count": 7505,
+      "nonfinite": 0,
+      "minimum": -98.85808563232422,
+      "maximum": 2.144939422607422,
+      "mean_absolute": 17.099296399146855,
+      "maximum_absolute": 98.85808563232422
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -100.86876678466797,
+      "maximum": 3.014914035797119,
+      "mean_absolute": 10.874704262862602,
+      "maximum_absolute": 100.86876678466797
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 8500,
+    "environment_steps": 233351,
+    "optimizer_updates": 58088,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.249612403100775,
+    "mean_turnaround_time": 11.663565891472869,
+    "mean_reward": -31.4921875,
+    "interval_mean_loss": 0.8279745819137849,
+    "interval_maximum_loss": 2.612806558609009,
+    "interval_maximum_gradient_norm": 9.409797668457031,
+    "interval_clipping_count": 0,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -98.91156768798828,
+      "maximum": 2.9955339431762695,
+      "mean_absolute": 11.13777382881354,
+      "maximum_absolute": 98.91156768798828
+    },
+    "policy_valid_q": {
+      "count": 7523,
+      "nonfinite": 0,
+      "minimum": -98.91156768798828,
+      "maximum": 1.3028855323791504,
+      "mean_absolute": 17.29462081878074,
+      "maximum_absolute": 98.91156768798828
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -98.90164947509766,
+      "maximum": 3.048187732696533,
+      "mean_absolute": 10.993876583079098,
+      "maximum_absolute": 98.90164947509766
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 8750,
+    "environment_steps": 239975,
+    "optimizer_updates": 59744,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.189147286821705,
+    "mean_turnaround_time": 11.603100775193798,
+    "mean_reward": -31.1875,
+    "interval_mean_loss": 0.7936847438329407,
+    "interval_maximum_loss": 2.4154443740844727,
+    "interval_maximum_gradient_norm": 8.3655424118042,
+    "interval_clipping_count": 0,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -96.00525665283203,
+      "maximum": 2.770570993423462,
+      "mean_absolute": 11.042647183407986,
+      "maximum_absolute": 96.00525665283203
+    },
+    "policy_valid_q": {
+      "count": 7484,
+      "nonfinite": 0,
+      "minimum": -96.00525665283203,
+      "maximum": 0.6775819063186646,
+      "mean_absolute": 17.147428678457175,
+      "maximum_absolute": 96.00525665283203
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -96.45509338378906,
+      "maximum": 2.8233754634857178,
+      "mean_absolute": 11.019013269540917,
+      "maximum_absolute": 96.45509338378906
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 9000,
+    "environment_steps": 246746,
+    "optimizer_updates": 61437,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.127131782945736,
+    "mean_turnaround_time": 11.54108527131783,
+    "mean_reward": -30.875,
+    "interval_mean_loss": 0.7921636767390559,
+    "interval_maximum_loss": 3.5601963996887207,
+    "interval_maximum_gradient_norm": 8.76392936706543,
+    "interval_clipping_count": 0,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -95.42584228515625,
+      "maximum": 3.001305341720581,
+      "mean_absolute": 10.988378155063348,
+      "maximum_absolute": 95.42584228515625
+    },
+    "policy_valid_q": {
+      "count": 7444,
+      "nonfinite": 0,
+      "minimum": -95.42584228515625,
+      "maximum": 0.6343920826911926,
+      "mean_absolute": 16.970534652947965,
+      "maximum_absolute": 95.42584228515625
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -96.66670227050781,
+      "maximum": 2.9889910221099854,
+      "mean_absolute": 11.071839019686053,
+      "maximum_absolute": 96.66670227050781
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 9250,
+    "environment_steps": 253795,
+    "optimizer_updates": 63199,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.155038759689923,
+    "mean_turnaround_time": 11.568992248062015,
+    "mean_reward": -31.015625,
+    "interval_mean_loss": 0.8211855670261735,
+    "interval_maximum_loss": 2.403169631958008,
+    "interval_maximum_gradient_norm": 9.452531814575195,
+    "interval_clipping_count": 0,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -99.4532699584961,
+      "maximum": 3.217573642730713,
+      "mean_absolute": 11.073098928107532,
+      "maximum_absolute": 99.4532699584961
+    },
+    "policy_valid_q": {
+      "count": 7462,
+      "nonfinite": 0,
+      "minimum": -99.4532699584961,
+      "maximum": 0.8059546947479248,
+      "mean_absolute": 17.03001012600593,
+      "maximum_absolute": 99.4532699584961
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -98.39555358886719,
+      "maximum": 3.1002533435821533,
+      "mean_absolute": 11.011044004649698,
+      "maximum_absolute": 98.39555358886719
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 9500,
+    "environment_steps": 260717,
+    "optimizer_updates": 64930,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.155038759689923,
+    "mean_turnaround_time": 11.568992248062015,
+    "mean_reward": -31.015625,
+    "interval_mean_loss": 0.812726447828962,
+    "interval_maximum_loss": 2.3663134574890137,
+    "interval_maximum_gradient_norm": 8.792437553405762,
+    "interval_clipping_count": 0,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -97.19023132324219,
+      "maximum": 3.355365037918091,
+      "mean_absolute": 10.86829665974323,
+      "maximum_absolute": 97.19023132324219
+    },
+    "policy_valid_q": {
+      "count": 7462,
+      "nonfinite": 0,
+      "minimum": -97.19023132324219,
+      "maximum": 0.5872522592544556,
+      "mean_absolute": 16.869526478303914,
+      "maximum_absolute": 97.19023132324219
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -97.27880859375,
+      "maximum": 3.4119091033935547,
+      "mean_absolute": 10.877853680279713,
+      "maximum_absolute": 97.27880859375
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 9750,
+    "environment_steps": 267607,
+    "optimizer_updates": 66652,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.113178294573643,
+    "mean_turnaround_time": 11.527131782945736,
+    "mean_reward": -30.8046875,
+    "interval_mean_loss": 0.8054892376722913,
+    "interval_maximum_loss": 2.6193974018096924,
+    "interval_maximum_gradient_norm": 8.865377426147461,
+    "interval_clipping_count": 0,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -98.0560073852539,
+      "maximum": 3.327265739440918,
+      "mean_absolute": 11.138680056364779,
+      "maximum_absolute": 98.0560073852539
+    },
+    "policy_valid_q": {
+      "count": 7435,
+      "nonfinite": 0,
+      "minimum": -98.0560073852539,
+      "maximum": 0.5728793144226074,
+      "mean_absolute": 17.15453477322895,
+      "maximum_absolute": 98.0560073852539
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -94.363525390625,
+      "maximum": 3.3787477016448975,
+      "mean_absolute": 11.053793918912495,
+      "maximum_absolute": 94.363525390625
+    },
+    "weights_finite": true
+  },
+  {
+    "episode": 10000,
+    "environment_steps": 274300,
+    "optimizer_updates": 68326,
+    "training_epsilon": 0.05,
+    "workload_count": 128,
+    "process_count": 645,
+    "mean_waiting_time": 6.156589147286821,
+    "mean_turnaround_time": 11.570542635658915,
+    "mean_reward": -31.0234375,
+    "interval_mean_loss": 0.8152588134277678,
+    "interval_maximum_loss": 3.0648577213287354,
+    "interval_maximum_gradient_norm": 8.782896995544434,
+    "interval_clipping_count": 0,
+    "policy_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -96.78199005126953,
+      "maximum": 3.468820095062256,
+      "mean_absolute": 11.08668071615683,
+      "maximum_absolute": 96.78199005126953
+    },
+    "policy_valid_q": {
+      "count": 7463,
+      "nonfinite": 0,
+      "minimum": -96.78199005126953,
+      "maximum": 0.6663610339164734,
+      "mean_absolute": 17.11323865860577,
+      "maximum_absolute": 96.78199005126953
+    },
+    "target_all_q": {
+      "count": 20952,
+      "nonfinite": 0,
+      "minimum": -95.75157928466797,
+      "maximum": 3.4780614376068115,
+      "mean_absolute": 11.010812800908877,
+      "maximum_absolute": 95.75157928466797
+    },
+    "weights_finite": true
+  }
+]

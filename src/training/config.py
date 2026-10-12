@@ -19,6 +19,8 @@ class TrainingConfig:
     validation_seed: int = 1729
     device: str = "cpu"
     torch_threads: int = 1
+    replay_augmentation: str = "none"
+    augmentation_seed: int = 630342
     # Only overrides are passed to DQNAgent; no duplicate optimizer defaults.
     agent_options: dict = field(default_factory=dict)
 
@@ -39,9 +41,11 @@ class TrainingConfig:
                 raise ValueError(name + " must be finite and between 0 and 1")
         if self.minimum_epsilon > self.initial_epsilon:
             raise ValueError("minimum_epsilon must not exceed initial_epsilon")
-        for name in ("seed", "validation_seed"):
+        for name in ("seed", "validation_seed", "augmentation_seed"):
             if type(getattr(self, name)) is not int:
                 raise ValueError(name + " must be an integer")
+        if self.replay_augmentation not in ("none", "permutation"):
+            raise ValueError("replay_augmentation must be none or permutation")
         if not isinstance(self.agent_options, dict):
             raise ValueError("agent_options must be a dictionary of DQN overrides")
         if {"seed", "device"} & self.agent_options.keys():

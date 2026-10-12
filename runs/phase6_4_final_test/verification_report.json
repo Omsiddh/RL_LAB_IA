@@ -1,0 +1,95 @@
+{
+  "completed_rollouts": 1536,
+  "identical_workloads_and_stable_indices": true,
+  "all_processes_complete": true,
+  "no_execution_before_arrival": true,
+  "cpu_burst_and_total_time_accounting": true,
+  "reward_equals_negative_waiting_every_rollout": true,
+  "turnaround_equals_waiting_plus_burst_every_process": true,
+  "srtf_inequality_violations": 0,
+  "all_dqn_actions_mask_valid": true,
+  "agent_state_before": {
+    "Augmented DQN 10k": {
+      "policy_weights": "db2f6e2ef6676e1a25998847696a074a877f6d8c85afe7b3f491b05113a079b5",
+      "target_weights": "a3d767cd5a7616cb711958b9a70307bf72c57ee7ec06fa9f6a3c3634fbbf5788",
+      "optimizer": "ed125c5e43147d3a7dd5218d00c93d33c75d6507f4421a2722871ebf414d1491",
+      "optimizer_updates": 66652,
+      "replay": "a89e68cb924e79b4502cbc6d2963ba843d3915e44ec1de0f94f15f4cd51beaff",
+      "replay_rng": "7f3814a4bd997e2df2c7d265bf82b2966a7777c7a2b38acdeef763a05cf2a01b",
+      "action_rng": "618af6c0e09c9b04f82d6df005f35274530ed4f50653eb9b862974347282fee3",
+      "gradients": "2082074d303878710b62f58498b46d78b30deb45031b3b29829812db48d5796d",
+      "policy_mode": true
+    },
+    "Original DQN 10k": {
+      "policy_weights": "5191219c55f0cc8f35069c57c2f73cce4a8e492dd118bfb2214fe8378ff77d1a",
+      "target_weights": "8a474d658e165e486999f787ecd97f79d1ffcecc79fcb1bb68fdb0b4df6bec24",
+      "optimizer": "bf52912a7754522fd504dcfaf6867acddb3e8b21fceea8ee21b0686d40c72a1a",
+      "optimizer_updates": 61437,
+      "replay": "a89e68cb924e79b4502cbc6d2963ba843d3915e44ec1de0f94f15f4cd51beaff",
+      "replay_rng": "0ad0a3c57b0ad96bf8d2f61c6c94002a5fcba76bf19e094b7236b0fdd5fccc54",
+      "action_rng": "e6489367cd3fc11a8530d10f26187a305f8beb6dde63f917cd533bf84ec5905f",
+      "gradients": "2082074d303878710b62f58498b46d78b30deb45031b3b29829812db48d5796d",
+      "policy_mode": true
+    },
+    "Reference DQN 6k": {
+      "policy_weights": "81b4f9a4ce028bdb1cdbc69d4ade9d7ddbb1fcd37552fb59f7bf5cb52dd32fe5",
+      "target_weights": "f9e828837def90fbd9bd08e0f205e26a203ca50ecf2f36301a8e10a89521db98",
+      "optimizer": "e03de65c36a57e87222606d716ccfa5782e978b3432b18b31b9563a440f8a50d",
+      "optimizer_updates": 35907,
+      "replay": "a89e68cb924e79b4502cbc6d2963ba843d3915e44ec1de0f94f15f4cd51beaff",
+      "replay_rng": "58bbe7dac2be2635dcbaf4ac1a41ec25c9633a979eb18da82c17087cb224394a",
+      "action_rng": "75592cd179bb481bf2d975366bd495ca2905fe3a34120a1374c21a1542103261",
+      "gradients": "2082074d303878710b62f58498b46d78b30deb45031b3b29829812db48d5796d",
+      "policy_mode": true
+    }
+  },
+  "agent_state_after": {
+    "Augmented DQN 10k": {
+      "policy_weights": "db2f6e2ef6676e1a25998847696a074a877f6d8c85afe7b3f491b05113a079b5",
+      "target_weights": "a3d767cd5a7616cb711958b9a70307bf72c57ee7ec06fa9f6a3c3634fbbf5788",
+      "optimizer": "ed125c5e43147d3a7dd5218d00c93d33c75d6507f4421a2722871ebf414d1491",
+      "optimizer_updates": 66652,
+      "replay": "a89e68cb924e79b4502cbc6d2963ba843d3915e44ec1de0f94f15f4cd51beaff",
+      "replay_rng": "7f3814a4bd997e2df2c7d265bf82b2966a7777c7a2b38acdeef763a05cf2a01b",
+      "action_rng": "618af6c0e09c9b04f82d6df005f35274530ed4f50653eb9b862974347282fee3",
+      "gradients": "2082074d303878710b62f58498b46d78b30deb45031b3b29829812db48d5796d",
+      "policy_mode": true
+    },
+    "Original DQN 10k": {
+      "policy_weights": "5191219c55f0cc8f35069c57c2f73cce4a8e492dd118bfb2214fe8378ff77d1a",
+      "target_weights": "8a474d658e165e486999f787ecd97f79d1ffcecc79fcb1bb68fdb0b4df6bec24",
+      "optimizer": "bf52912a7754522fd504dcfaf6867acddb3e8b21fceea8ee21b0686d40c72a1a",
+      "optimizer_updates": 61437,
+      "replay": "a89e68cb924e79b4502cbc6d2963ba843d3915e44ec1de0f94f15f4cd51beaff",
+      "replay_rng": "0ad0a3c57b0ad96bf8d2f61c6c94002a5fcba76bf19e094b7236b0fdd5fccc54",
+      "action_rng": "e6489367cd3fc11a8530d10f26187a305f8beb6dde63f917cd533bf84ec5905f",
+      "gradients": "2082074d303878710b62f58498b46d78b30deb45031b3b29829812db48d5796d",
+      "policy_mode": true
+    },
+    "Reference DQN 6k": {
+      "policy_weights": "81b4f9a4ce028bdb1cdbc69d4ade9d7ddbb1fcd37552fb59f7bf5cb52dd32fe5",
+      "target_weights": "f9e828837def90fbd9bd08e0f205e26a203ca50ecf2f36301a8e10a89521db98",
+      "optimizer": "e03de65c36a57e87222606d716ccfa5782e978b3432b18b31b9563a440f8a50d",
+      "optimizer_updates": 35907,
+      "replay": "a89e68cb924e79b4502cbc6d2963ba843d3915e44ec1de0f94f15f4cd51beaff",
+      "replay_rng": "58bbe7dac2be2635dcbaf4ac1a41ec25c9633a979eb18da82c17087cb224394a",
+      "action_rng": "75592cd179bb481bf2d975366bd495ca2905fe3a34120a1374c21a1542103261",
+      "gradients": "2082074d303878710b62f58498b46d78b30deb45031b3b29829812db48d5796d",
+      "policy_mode": true
+    }
+  },
+  "model_optimizer_replay_rng_gradients_modes_unchanged": true,
+  "global_rng_unchanged": true,
+  "workload_sha256_before": "9ec79309a0c84bd948f8dc3611bd3753aa2b1b24fc00cb26e75dbfb22c7a8f0b",
+  "workload_sha256_after": "9ec79309a0c84bd948f8dc3611bd3753aa2b1b24fc00cb26e75dbfb22c7a8f0b",
+  "deterministic_repeat_exact": true,
+  "deterministic_bootstrap_exact": true,
+  "unique_workloads_evaluated": 256,
+  "repeat_is_same_sample": true,
+  "evaluation_result_sha256": "ef30ba922482918c6f5ead31b82146996a8ad51b1c3b88f9b7de977eeec2e8e6",
+  "per_process_row_count": 7662,
+  "protected_source_and_prior_artifact_count": 292,
+  "protected_sources_validation_and_prior_artifacts_unchanged": true,
+  "full_test_suite": "214 passed, 1 skipped in 14.60s. Command: .\\.venv\\Scripts\\python.exe -m pytest -q. The skip is the existing CUDA-availability test. Includes 26 new synthetic-only final-evaluation tests.",
+  "protocol_manifest_unchanged_after_evaluation": true
+}

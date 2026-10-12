@@ -1,0 +1,33 @@
+{
+  "workload_count": 256,
+  "seed": 6401729,
+  "seed_origin": "No prior collection or seed found in repository source/configuration/experiment records; this single dedicated seed was chosen before evaluation",
+  "generator": "src.training.validation.sample_workload",
+  "sampling": "Local Random(test_seed), per workload getrandbits(64) -> existing generate_workload -> one training-style RNG shuffle",
+  "process_count_range": [
+    4,
+    6
+  ],
+  "arrival_time_range": [
+    0,
+    8
+  ],
+  "burst_time_range": [
+    1,
+    10
+  ],
+  "duplicates": "Record duplicates across validation/test, including identities/order-independent arrival-burst configurations; never redraw",
+  "process_count": 1277,
+  "process_count_workloads": {
+    "4": 90,
+    "5": 79,
+    "6": 87
+  },
+  "workload_sha256": "9ec79309a0c84bd948f8dc3611bd3753aa2b1b24fc00cb26e75dbfb22c7a8f0b",
+  "validation_workload_sha256": "7387547e5cf6bdccfcf92732be65a798c0bf0c369050ad06d93869a973f5fe8e",
+  "exact_cross_split_duplicate_workloads": 0,
+  "arrival_burst_multiset_cross_split_duplicate_workloads": 0,
+  "within_test_exact_duplicate_workloads": 0,
+  "within_test_arrival_burst_multiset_duplicates": 0,
+  "no_duplicate_filtering_or_redraw": true
+}

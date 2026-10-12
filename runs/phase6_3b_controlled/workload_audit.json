@@ -1,0 +1,594 @@
+{
+  "episodes": 10000,
+  "training_seed": 42,
+  "existing_randomization": "sample_workload draws a 64-bit seed, calls generate_workload with a local Random, then shuffles the resulting definitions once with the training RNG",
+  "generator": "PID order P1..Pn before shuffle; count uniform 4..6; arrival iid uniform 0..8; burst iid uniform 1..10",
+  "interpretation": "PID-to-slot assignment is uniform conditional on n in the sampler. Finite counts fluctuate. Slots 0..3 always occupied, slot 4 only for n>=5, slot 5 only for n=6. Ready-state/replay exposure also depends on arrivals and policy; it need not be uniform.",
+  "decision": "Do not add a workload shuffle. Test independent replay-coordinate augmentation, replacing each stored transition by one permuted version.",
+  "process_count_workloads": {
+    "4": 3435,
+    "5": 3277,
+    "6": 3288
+  },
+  "workload_sequence_digest": "94e8918c64e79946c5f3e28e7b579bc6de970787026d75d0114275d6770874c2",
+  "expected_environment_steps": 274300,
+  "slot_attributes": [
+    {
+      "slot": 0,
+      "occupied_workloads": 10000,
+      "mean_arrival": 4.021,
+      "mean_burst": 5.4918
+    },
+    {
+      "slot": 1,
+      "occupied_workloads": 10000,
+      "mean_arrival": 3.9552,
+      "mean_burst": 5.479
+    },
+    {
+      "slot": 2,
+      "occupied_workloads": 10000,
+      "mean_arrival": 3.9971,
+      "mean_burst": 5.509
+    },
+    {
+      "slot": 3,
+      "occupied_workloads": 10000,
+      "mean_arrival": 3.9973,
+      "mean_burst": 5.5075
+    },
+    {
+      "slot": 4,
+      "occupied_workloads": 6565,
+      "mean_arrival": 4.033054074638233,
+      "mean_burst": 5.508453922315309
+    },
+    {
+      "slot": 5,
+      "occupied_workloads": 3288,
+      "mean_arrival": 4.03345498783455,
+      "mean_burst": 5.554744525547445
+    }
+  ],
+  "pid_placements": [
+    {
+      "process_count": 4,
+      "slot": 0,
+      "pid": "P1",
+      "observed": 897,
+      "expected": 858.75
+    },
+    {
+      "process_count": 4,
+      "slot": 0,
+      "pid": "P2",
+      "observed": 878,
+      "expected": 858.75
+    },
+    {
+      "process_count": 4,
+      "slot": 0,
+      "pid": "P3",
+      "observed": 821,
+      "expected": 858.75
+    },
+    {
+      "process_count": 4,
+      "slot": 0,
+      "pid": "P4",
+      "observed": 839,
+      "expected": 858.75
+    },
+    {
+      "process_count": 4,
+      "slot": 1,
+      "pid": "P1",
+      "observed": 836,
+      "expected": 858.75
+    },
+    {
+      "process_count": 4,
+      "slot": 1,
+      "pid": "P2",
+      "observed": 858,
+      "expected": 858.75
+    },
+    {
+      "process_count": 4,
+      "slot": 1,
+      "pid": "P3",
+      "observed": 878,
+      "expected": 858.75
+    },
+    {
+      "process_count": 4,
+      "slot": 1,
+      "pid": "P4",
+      "observed": 863,
+      "expected": 858.75
+    },
+    {
+      "process_count": 4,
+      "slot": 2,
+      "pid": "P1",
+      "observed": 848,
+      "expected": 858.75
+    },
+    {
+      "process_count": 4,
+      "slot": 2,
+      "pid": "P2",
+      "observed": 876,
+      "expected": 858.75
+    },
+    {
+      "process_count": 4,
+      "slot": 2,
+      "pid": "P3",
+      "observed": 863,
+      "expected": 858.75
+    },
+    {
+      "process_count": 4,
+      "slot": 2,
+      "pid": "P4",
+      "observed": 848,
+      "expected": 858.75
+    },
+    {
+      "process_count": 4,
+      "slot": 3,
+      "pid": "P1",
+      "observed": 854,
+      "expected": 858.75
+    },
+    {
+      "process_count": 4,
+      "slot": 3,
+      "pid": "P2",
+      "observed": 823,
+      "expected": 858.75
+    },
+    {
+      "process_count": 4,
+      "slot": 3,
+      "pid": "P3",
+      "observed": 873,
+      "expected": 858.75
+    },
+    {
+      "process_count": 4,
+      "slot": 3,
+      "pid": "P4",
+      "observed": 885,
+      "expected": 858.75
+    },
+    {
+      "process_count": 5,
+      "slot": 0,
+      "pid": "P1",
+      "observed": 681,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 0,
+      "pid": "P2",
+      "observed": 665,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 0,
+      "pid": "P3",
+      "observed": 660,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 0,
+      "pid": "P4",
+      "observed": 623,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 0,
+      "pid": "P5",
+      "observed": 648,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 1,
+      "pid": "P1",
+      "observed": 672,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 1,
+      "pid": "P2",
+      "observed": 653,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 1,
+      "pid": "P3",
+      "observed": 645,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 1,
+      "pid": "P4",
+      "observed": 655,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 1,
+      "pid": "P5",
+      "observed": 652,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 2,
+      "pid": "P1",
+      "observed": 624,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 2,
+      "pid": "P2",
+      "observed": 643,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 2,
+      "pid": "P3",
+      "observed": 676,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 2,
+      "pid": "P4",
+      "observed": 678,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 2,
+      "pid": "P5",
+      "observed": 656,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 3,
+      "pid": "P1",
+      "observed": 622,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 3,
+      "pid": "P2",
+      "observed": 657,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 3,
+      "pid": "P3",
+      "observed": 683,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 3,
+      "pid": "P4",
+      "observed": 633,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 3,
+      "pid": "P5",
+      "observed": 682,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 4,
+      "pid": "P1",
+      "observed": 678,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 4,
+      "pid": "P2",
+      "observed": 659,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 4,
+      "pid": "P3",
+      "observed": 613,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 4,
+      "pid": "P4",
+      "observed": 688,
+      "expected": 655.4
+    },
+    {
+      "process_count": 5,
+      "slot": 4,
+      "pid": "P5",
+      "observed": 639,
+      "expected": 655.4
+    },
+    {
+      "process_count": 6,
+      "slot": 0,
+      "pid": "P1",
+      "observed": 576,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 0,
+      "pid": "P2",
+      "observed": 549,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 0,
+      "pid": "P3",
+      "observed": 566,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 0,
+      "pid": "P4",
+      "observed": 503,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 0,
+      "pid": "P5",
+      "observed": 577,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 0,
+      "pid": "P6",
+      "observed": 517,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 1,
+      "pid": "P1",
+      "observed": 505,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 1,
+      "pid": "P2",
+      "observed": 541,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 1,
+      "pid": "P3",
+      "observed": 549,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 1,
+      "pid": "P4",
+      "observed": 584,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 1,
+      "pid": "P5",
+      "observed": 537,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 1,
+      "pid": "P6",
+      "observed": 572,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 2,
+      "pid": "P1",
+      "observed": 531,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 2,
+      "pid": "P2",
+      "observed": 570,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 2,
+      "pid": "P3",
+      "observed": 556,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 2,
+      "pid": "P4",
+      "observed": 553,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 2,
+      "pid": "P5",
+      "observed": 513,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 2,
+      "pid": "P6",
+      "observed": 565,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 3,
+      "pid": "P1",
+      "observed": 574,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 3,
+      "pid": "P2",
+      "observed": 558,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 3,
+      "pid": "P3",
+      "observed": 517,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 3,
+      "pid": "P4",
+      "observed": 556,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 3,
+      "pid": "P5",
+      "observed": 547,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 3,
+      "pid": "P6",
+      "observed": 536,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 4,
+      "pid": "P1",
+      "observed": 573,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 4,
+      "pid": "P2",
+      "observed": 545,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 4,
+      "pid": "P3",
+      "observed": 529,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 4,
+      "pid": "P4",
+      "observed": 548,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 4,
+      "pid": "P5",
+      "observed": 560,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 4,
+      "pid": "P6",
+      "observed": 533,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 5,
+      "pid": "P1",
+      "observed": 529,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 5,
+      "pid": "P2",
+      "observed": 525,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 5,
+      "pid": "P3",
+      "observed": 571,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 5,
+      "pid": "P4",
+      "observed": 544,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 5,
+      "pid": "P5",
+      "observed": 554,
+      "expected": 548.0
+    },
+    {
+      "process_count": 6,
+      "slot": 5,
+      "pid": "P6",
+      "observed": 565,
+      "expected": 548.0
+    }
+  ]
+}

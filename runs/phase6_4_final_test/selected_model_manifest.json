@@ -1,0 +1,231 @@
+[
+  {
+    "policy": "Augmented DQN 10k",
+    "role": "primary",
+    "checkpoint": "D:\\RL_LAB_IA\\runs\\phase6_3b_controlled\\augmented_10000\\best_model.pt",
+    "checkpoint_sha256": "e124abab3d2f9350496f732fa97b5b2334374702b1103b8b713cacc6c781fb4f",
+    "metadata_sha256": "4f664c95ba6156daca7818ca26a7aafdf81c9ec9ab6ce249d171aaa6b4d5dacc",
+    "selected_episode": 9750,
+    "metadata": {
+      "episode": 9750,
+      "environment_steps": 267607,
+      "optimizer_updates": 66652,
+      "epsilon_schedule_position": 267607,
+      "epsilon": 0.05,
+      "seed": 42,
+      "configuration": {
+        "episodes": 10000,
+        "initial_epsilon": 1.0,
+        "minimum_epsilon": 0.05,
+        "epsilon_decay_steps": 100000,
+        "replay_warmup": 1000,
+        "optimization_interval": 4,
+        "validation_interval": 250,
+        "validation_workloads": 128,
+        "seed": 42,
+        "validation_seed": 1729,
+        "device": "cpu",
+        "torch_threads": 1,
+        "replay_augmentation": "permutation",
+        "augmentation_seed": 630342,
+        "agent_options": {},
+        "agent_config": {
+          "learning_rate": 0.0005,
+          "gamma": 1.0,
+          "batch_size": 64,
+          "replay_capacity": 20000,
+          "target_sync_interval": 250,
+          "max_gradient_norm": 10.0,
+          "seed": 42
+        },
+        "runtime": {
+          "python": "3.11.9",
+          "numpy": "2.4.6",
+          "torch": "2.14.1+cpu",
+          "device": "cpu",
+          "deterministic_algorithms": true
+        }
+      },
+      "validation": {
+        "episode": 9750,
+        "environment_steps": 267607,
+        "optimizer_updates": 66652,
+        "epsilon": 0.0,
+        "workload_count": 128,
+        "process_count": 645,
+        "mean_waiting_time": 6.113178294573643,
+        "mean_turnaround_time": 11.527131782945736,
+        "mean_reward": -30.8046875,
+        "is_best": true
+      },
+      "checkpoint_purpose": "Trained model evaluation; optimizer state is also included",
+      "replay_experiences_saved": false,
+      "exact_resume_supported": false,
+      "resume_limitation": "Replay is empty on load. Training orchestration and workload RNG are not restored by DQNAgent.load; exact resume is unsupported."
+    },
+    "loaded_state": {
+      "policy_weights": "db2f6e2ef6676e1a25998847696a074a877f6d8c85afe7b3f491b05113a079b5",
+      "target_weights": "a3d767cd5a7616cb711958b9a70307bf72c57ee7ec06fa9f6a3c3634fbbf5788",
+      "optimizer": "ed125c5e43147d3a7dd5218d00c93d33c75d6507f4421a2722871ebf414d1491",
+      "optimizer_updates": 66652,
+      "replay": "a89e68cb924e79b4502cbc6d2963ba843d3915e44ec1de0f94f15f4cd51beaff",
+      "replay_rng": "7f3814a4bd997e2df2c7d265bf82b2966a7777c7a2b38acdeef763a05cf2a01b",
+      "action_rng": "618af6c0e09c9b04f82d6df005f35274530ed4f50653eb9b862974347282fee3",
+      "gradients": "2082074d303878710b62f58498b46d78b30deb45031b3b29829812db48d5796d",
+      "policy_mode": true
+    },
+    "greedy_load_probe_passed": true
+  },
+  {
+    "policy": "Original DQN 10k",
+    "role": "equal-budget control",
+    "checkpoint": "D:\\RL_LAB_IA\\runs\\phase6_3b_controlled\\original_10000\\best_model.pt",
+    "checkpoint_sha256": "c47c60a29ac97ad642dc69d2c44111a73382a5661abf9e1c6f79ff52c1ca2439",
+    "metadata_sha256": "26b0456d5e6820e81ba4f8414325300c6674b4c53c10df3d5ac216a25408cdf3",
+    "selected_episode": 9000,
+    "metadata": {
+      "episode": 9000,
+      "environment_steps": 246746,
+      "optimizer_updates": 61437,
+      "epsilon_schedule_position": 246746,
+      "epsilon": 0.05,
+      "seed": 42,
+      "configuration": {
+        "episodes": 10000,
+        "initial_epsilon": 1.0,
+        "minimum_epsilon": 0.05,
+        "epsilon_decay_steps": 100000,
+        "replay_warmup": 1000,
+        "optimization_interval": 4,
+        "validation_interval": 250,
+        "validation_workloads": 128,
+        "seed": 42,
+        "validation_seed": 1729,
+        "device": "cpu",
+        "torch_threads": 1,
+        "replay_augmentation": "none",
+        "augmentation_seed": 630342,
+        "agent_options": {},
+        "agent_config": {
+          "learning_rate": 0.0005,
+          "gamma": 1.0,
+          "batch_size": 64,
+          "replay_capacity": 20000,
+          "target_sync_interval": 250,
+          "max_gradient_norm": 10.0,
+          "seed": 42
+        },
+        "runtime": {
+          "python": "3.11.9",
+          "numpy": "2.4.6",
+          "torch": "2.14.1+cpu",
+          "device": "cpu",
+          "deterministic_algorithms": true
+        }
+      },
+      "validation": {
+        "episode": 9000,
+        "environment_steps": 246746,
+        "optimizer_updates": 61437,
+        "epsilon": 0.0,
+        "workload_count": 128,
+        "process_count": 645,
+        "mean_waiting_time": 6.303875968992248,
+        "mean_turnaround_time": 11.71782945736434,
+        "mean_reward": -31.765625,
+        "is_best": true
+      },
+      "checkpoint_purpose": "Trained model evaluation; optimizer state is also included",
+      "replay_experiences_saved": false,
+      "exact_resume_supported": false,
+      "resume_limitation": "Replay is empty on load. Training orchestration and workload RNG are not restored by DQNAgent.load; exact resume is unsupported."
+    },
+    "loaded_state": {
+      "policy_weights": "5191219c55f0cc8f35069c57c2f73cce4a8e492dd118bfb2214fe8378ff77d1a",
+      "target_weights": "8a474d658e165e486999f787ecd97f79d1ffcecc79fcb1bb68fdb0b4df6bec24",
+      "optimizer": "bf52912a7754522fd504dcfaf6867acddb3e8b21fceea8ee21b0686d40c72a1a",
+      "optimizer_updates": 61437,
+      "replay": "a89e68cb924e79b4502cbc6d2963ba843d3915e44ec1de0f94f15f4cd51beaff",
+      "replay_rng": "0ad0a3c57b0ad96bf8d2f61c6c94002a5fcba76bf19e094b7236b0fdd5fccc54",
+      "action_rng": "e6489367cd3fc11a8530d10f26187a305f8beb6dde63f917cd533bf84ec5905f",
+      "gradients": "2082074d303878710b62f58498b46d78b30deb45031b3b29829812db48d5796d",
+      "policy_mode": true
+    },
+    "greedy_load_probe_passed": true
+  },
+  {
+    "policy": "Reference DQN 6k",
+    "role": "historical reference",
+    "checkpoint": "D:\\RL_LAB_IA\\runs\\phase5_full_6000\\best_model.pt",
+    "checkpoint_sha256": "70cda1270c41eb0137d10d7ac295e575e127af98b77fe575facd39c3b4dd83a5",
+    "metadata_sha256": "974b1b50b77f017ed7e93aaf2fe49f3fe4712015a03456ced530e271c4095dfb",
+    "selected_episode": 5250,
+    "metadata": {
+      "episode": 5250,
+      "environment_steps": 144624,
+      "optimizer_updates": 35907,
+      "epsilon_schedule_position": 144624,
+      "epsilon": 0.05,
+      "seed": 42,
+      "configuration": {
+        "episodes": 6000,
+        "initial_epsilon": 1.0,
+        "minimum_epsilon": 0.05,
+        "epsilon_decay_steps": 100000,
+        "replay_warmup": 1000,
+        "optimization_interval": 4,
+        "validation_interval": 250,
+        "validation_workloads": 128,
+        "seed": 42,
+        "validation_seed": 1729,
+        "device": "cpu",
+        "torch_threads": 1,
+        "agent_options": {},
+        "agent_config": {
+          "learning_rate": 0.0005,
+          "gamma": 1.0,
+          "batch_size": 64,
+          "replay_capacity": 20000,
+          "target_sync_interval": 250,
+          "max_gradient_norm": 10.0,
+          "seed": 42
+        },
+        "runtime": {
+          "python": "3.11.9",
+          "numpy": "2.4.6",
+          "torch": "2.14.1+cpu",
+          "device": "cpu",
+          "deterministic_algorithms": true
+        }
+      },
+      "validation": {
+        "episode": 5250,
+        "environment_steps": 144624,
+        "optimizer_updates": 35907,
+        "epsilon": 0.0,
+        "workload_count": 128,
+        "process_count": 645,
+        "mean_waiting_time": 6.586046511627907,
+        "mean_turnaround_time": 12.0,
+        "mean_reward": -33.1875,
+        "is_best": true
+      },
+      "checkpoint_purpose": "Trained model evaluation; optimizer state is also included",
+      "replay_experiences_saved": false,
+      "exact_resume_supported": false,
+      "resume_limitation": "Replay is empty on load. Training orchestration and workload RNG are not restored by DQNAgent.load; exact resume is unsupported."
+    },
+    "loaded_state": {
+      "policy_weights": "81b4f9a4ce028bdb1cdbc69d4ade9d7ddbb1fcd37552fb59f7bf5cb52dd32fe5",
+      "target_weights": "f9e828837def90fbd9bd08e0f205e26a203ca50ecf2f36301a8e10a89521db98",
+      "optimizer": "e03de65c36a57e87222606d716ccfa5782e978b3432b18b31b9563a440f8a50d",
+      "optimizer_updates": 35907,
+      "replay": "a89e68cb924e79b4502cbc6d2963ba843d3915e44ec1de0f94f15f4cd51beaff",
+      "replay_rng": "58bbe7dac2be2635dcbaf4ac1a41ec25c9633a979eb18da82c17087cb224394a",
+      "action_rng": "75592cd179bb481bf2d975366bd495ca2905fe3a34120a1374c21a1542103261",
+      "gradients": "2082074d303878710b62f58498b46d78b30deb45031b3b29829812db48d5796d",
+      "policy_mode": true
+    },
+    "greedy_load_probe_passed": true
+  }
+]
