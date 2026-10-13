@@ -1,0 +1,8 @@
+{
+  "command": ".\\.venv\\Scripts\\python.exe -m pytest -q",
+  "passed": 188,
+  "skipped": 1,
+  "elapsed_seconds": 14.76,
+  "skip_reason": "Existing CUDA availability test",
+  "new_tests_stage6_3b": 13
+}

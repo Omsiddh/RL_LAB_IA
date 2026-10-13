@@ -1,0 +1,24 @@
+{
+  "episodes": 6000,
+  "environment_steps": 165247,
+  "optimizer_updates": 41062,
+  "epsilon": 0.05,
+  "best_validation_episode": 5250,
+  "best_validation_mean_waiting_time": 6.586046511627907,
+  "final_validation_mean_waiting_time": 6.6434108527131785,
+  "output_dir": "D:\\RL_LAB_IA\\runs\\phase5_full_6000",
+  "training_and_plot_seconds": 115.80014590000064,
+  "nonfinite_loss_or_gradient_count": 0,
+  "maximum_optimizer_loss": 8.501230239868164,
+  "mean_optimizer_loss": 1.7740370517158044,
+  "maximum_gradient_norm_before_clipping": 23.26690101623535,
+  "maximum_gradient_norm_after_clipping": 10.000001907348633,
+  "clipping_count": 996,
+  "checkpoint_verifications": 27,
+  "all_checkpoint_scores_exact": true,
+  "previous_results_and_source_hashes_unchanged": true,
+  "training_prefix_comparisons": {
+    "runs\\phase5_diagnostic": true,
+    "runs\\phase5_extended_2000": true
+  }
+}

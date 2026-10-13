@@ -1,0 +1,7 @@
+process_count_group,slot,predictor,outcome,estimate,ci_low,ci_high,workloads,valid_bootstrap_draws
+all,3,fraction of multi-ready unique-shortest opportunities located in this slot,within-workload centered DQN mean waiting; slope per unit exposure fraction,0.1763995587785275,0.020829822402754508,0.3480626257853542,128,5000
+all,5,fraction of multi-ready unique-shortest opportunities located in this slot,within-workload centered DQN mean waiting; slope per unit exposure fraction,0.1503790355661621,-0.3713002660624525,0.6136144608139482,128,5000
+4,3,fraction of multi-ready unique-shortest opportunities located in this slot,within-workload centered DQN mean waiting; slope per unit exposure fraction,0.1081611612557919,-0.045957998014833336,0.3305385058184566,41,5000
+5,3,fraction of multi-ready unique-shortest opportunities located in this slot,within-workload centered DQN mean waiting; slope per unit exposure fraction,0.2181606398063645,-0.024220233342728752,0.5121207480277432,41,5000
+6,3,fraction of multi-ready unique-shortest opportunities located in this slot,within-workload centered DQN mean waiting; slope per unit exposure fraction,0.2625870577294768,-0.19861759815611083,0.6881441665275672,46,5000
+6,5,fraction of multi-ready unique-shortest opportunities located in this slot,within-workload centered DQN mean waiting; slope per unit exposure fraction,0.15037903556616206,-0.3448098770136831,0.623466881703779,46,5000

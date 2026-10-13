@@ -1,0 +1,33 @@
+{
+  "episodes": 10000,
+  "initial_epsilon": 1.0,
+  "minimum_epsilon": 0.05,
+  "epsilon_decay_steps": 100000,
+  "replay_warmup": 1000,
+  "optimization_interval": 4,
+  "validation_interval": 250,
+  "validation_workloads": 128,
+  "seed": 42,
+  "validation_seed": 1729,
+  "device": "cpu",
+  "torch_threads": 1,
+  "replay_augmentation": "permutation",
+  "augmentation_seed": 630342,
+  "agent_options": {},
+  "agent_config": {
+    "learning_rate": 0.0005,
+    "gamma": 1.0,
+    "batch_size": 64,
+    "replay_capacity": 20000,
+    "target_sync_interval": 250,
+    "max_gradient_norm": 10.0,
+    "seed": 42
+  },
+  "runtime": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "torch": "2.14.1+cpu",
+    "device": "cpu",
+    "deterministic_algorithms": true
+  }
+}

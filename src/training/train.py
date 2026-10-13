@@ -14,6 +14,7 @@ import torch
 from src.agent import DQNAgent
 from src.env.rl_adapter import RLAdapter
 from .config import TrainingConfig
+from .augmentation import augment_transition
 from .plots import generate_plots
 from .validation import Validator, episode_metrics, sample_workload
 
@@ -43,6 +44,8 @@ class Trainer:
         if self.config.replay_warmup > self.agent.replay_buffer.capacity:
             raise ValueError("replay_warmup must not exceed replay capacity")
         self.training_rng = random.Random(self.config.seed)
+        self.augmentation_rng = (random.Random(self.config.augmentation_seed)
+                                 if self.config.replay_augmentation == "permutation" else None)
         self.validator = Validator(self.config.validation_workloads, self.config.validation_seed)
         self.environment_steps = 0
         self.episode = 0
@@ -101,7 +104,12 @@ class Trainer:
             epsilon = self.config.epsilon_at(self.environment_steps)
             action = self.agent.select_action(state, adapter.valid_action_mask(), epsilon=epsilon)
             next_state, reward, done, info = adapter.step(action)
-            self.agent.remember(state, action, reward, next_state, done, info["action_mask"])
+            if self.augmentation_rng is None:
+                self.agent.remember(state, action, reward, next_state, done, info["action_mask"])
+            else:
+                transition = augment_transition(state, action, reward, next_state, done,
+                    info["action_mask"], len(adapter.env.processes), self.augmentation_rng)
+                self.agent.remember(*transition)
             self.environment_steps += 1
             # The global clock includes warm-up. The first eligible update is
             # a multiple of the interval with warm-up and batch size satisfied.
@@ -195,6 +203,8 @@ def main(argv=None):
     parser.add_argument("--epsilon-decay-steps", type=int, default=100000)
     parser.add_argument("--torch-threads", type=int, default=1)
     parser.add_argument("--device", choices=["cpu", "cuda"], default="cpu")
+    parser.add_argument("--replay-augmentation", choices=["none", "permutation"], default="none")
+    parser.add_argument("--augmentation-seed", type=int, default=630342)
     args = parser.parse_args(argv)
     episodes = args.episodes if args.episodes is not None else (20 if args.smoke else 6000)
     config_values = vars(args).copy()
