@@ -38,13 +38,15 @@ def greedy_evaluation(agent, seed):
         agent.policy_network.train(original_mode)
 
 
-def _run_dqn(workload, agent, workload_id, decisions):
+def _run_dqn(workload, agent, workload_id, decisions, trace=None):
     adapter = RLAdapter()
     observation = adapter.reset(workload)
     step = 0
     while not adapter.env.is_done():
         mask = adapter.valid_action_mask()
         action = agent.select_action(observation, mask, epsilon=0.0)
+        if trace is not None:
+            q_values = agent.policy_network(observation).detach().cpu().tolist()
         # Diagnostic data uses only currently observed ready processes and does
         # not feed anything back into action selection.
         ready = np.flatnonzero(mask).tolist()
@@ -63,7 +65,30 @@ def _run_dqn(workload, agent, workload_id, decisions):
                 "equivalent_choice_candidate": len(equivalent) > 1 and index in equivalent,
                 "equivalent_choice_expected": 1 / len(equivalent) if len(equivalent) > 1 and index in equivalent else 0.0,
             })
-        observation, _, _, _ = adapter.step(action)
+        next_observation, reward, done, info = adapter.step(action)
+        if trace is not None:
+            trace.append({
+                "step": step, "time": info["start_time"],
+                "observation": observation.tolist(), "action_mask": mask.tolist(),
+                "q_values": q_values,
+                "masked_q_values": [value if valid else None
+                                    for value, valid in zip(q_values, mask)],
+                "selected_action": action, "selected_pid": info["pid"],
+                "epsilon": 0.0, "exploratory": False, "reward": reward,
+                "waiting_process_indices": info["waiting_indices"],
+                "execution": {"start": info["start_time"], "end": info["end_time"],
+                              "process_index": action, "pid": info["pid"]},
+                "context_switch": info["context_switch"], "preemption": info["preemption"],
+                "process_completed": info["completed"], "done": done,
+                "idle_interval_after": (dict(zip(("start", "end", "process_index", "pid"),
+                                                  info["idle_interval"]))
+                                        if info["idle_interval"] is not None else None),
+                "next_time": adapter.env.time,
+                "next_observation": next_observation.tolist(),
+                "next_action_mask": info["action_mask"].tolist(),
+                "cumulative_reward": adapter.env.total_reward,
+            })
+        observation = next_observation
         step += 1
     metrics = adapter.env.get_metrics()
     processes = metrics["processes"]
@@ -77,11 +102,12 @@ def _run_dqn(workload, agent, workload_id, decisions):
     }
 
 
-def evaluate_workloads(workloads, agent, validation_seed=1729):
+def evaluate_workloads(workloads, agent, validation_seed=1729, traces=None):
     """Replay the supplied immutable definitions with their original indices.
 
     Returns one row of complete simulator results per workload and observational
     DQN decision records. No workload generation, permutation, or training occurs.
+    If supplied, traces receives one list of real DQN transitions per workload.
     """
     if not workloads or any(not workload for workload in workloads):
         raise ValueError("Benchmark requires nonempty workloads")
@@ -93,7 +119,8 @@ def evaluate_workloads(workloads, agent, validation_seed=1729):
     results, decisions = [], []
     with greedy_evaluation(agent, validation_seed):
         for workload_id, workload in enumerate(workloads):
-            result = {"DQN": _run_dqn(workload, agent, workload_id, decisions),
+            trace = [] if traces is not None else None
+            result = {"DQN": _run_dqn(workload, agent, workload_id, decisions, trace),
                       "FCFS": run_fcfs(workload), "SRTF": run_srtf(workload),
                       "Round Robin": run_round_robin(workload, quantum=2)}
             for policy in POLICIES:
@@ -112,6 +139,8 @@ def evaluate_workloads(workloads, agent, validation_seed=1729):
                 if optimal_waiting > waiting:
                     raise AssertionError("SRTF waiting-time optimality inequality failed")
             results.append(result)
+            if traces is not None:
+                traces.append(trace)
     if weights_digest(agent) != before:
         raise AssertionError("Benchmark modified network weights")
     if (agent.optimizer_steps != optimizer_updates or len(agent.replay_buffer) != replay_size

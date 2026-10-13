@@ -18,10 +18,57 @@ RL_LAB_IA/
 ├── pyproject.toml
 ├── src/
 ├── tests/
+├── docs/
+├── exports/
+├── web/
 └── runs/
 ```
 
 All paths below are relative to this repository root.
+
+## Interactive React website
+
+From the repository root:
+
+```powershell
+cd web
+npm install
+npm run dev
+```
+
+Open **http://127.0.0.1:5173/**. Node.js and npm are required; the website runs
+entirely in the browser after its assets load.
+
+- **Laboratory:** edit process IDs, arrivals and bursts; add/remove jobs; generate
+  seeded workloads; play, pause, step, reset or manually choose the next job.
+- **Compare:** view FCFS, SRTF, configurable Round Robin and the trained DQN on
+  the same workload, with Gantt charts and final metrics. Export JSON or SVG.
+- **Project results:** inspect the recorded 256-workload evaluation, paired
+  augmentation results and measured validation curves.
+- **Q-learning:** train a separate tabular teaching agent on the basic workload,
+  inspect its Q-table, and run its learned policy.
+
+Recorded presets **69**, **201** and **0** replay exact PyTorch decision traces.
+Custom workloads execute the actual exported DQN weights in JavaScript; browser
+floating-point calculations can differ slightly from PyTorch. Future job data
+stays hidden in the DQN observation. The tabular teaching agent is separate from
+the saved project DQN.
+
+To refresh browser weights, traces and saved experiment assets, first return to
+the repository root and run:
+
+```powershell
+.\.venv\Scripts\python.exe -m src.benchmark.export_web_assets
+```
+
+Website verification and production build, from `web/`:
+
+```powershell
+npm test
+npm run build
+```
+
+See [web/README.md](web/README.md) for a short demonstration sequence.
 
 ## Run the demonstration
 
@@ -65,6 +112,29 @@ use the complete 256-workload evaluation.
 
 Use `--checkpoint PATH` for another saved model and `--output-dir PATH` for a
 different destination. Show all options with `python main.py --help`.
+
+## Export real DQN decisions for an interactive demo
+
+The importable JSON examples are in `exports/dqn_traces/`: workloads **0, 69,
+and 201** from the final test collection. They contain actual observations,
+action masks, Q-values, greedy actions, rewards, transitions, and full timelines
+from the saved augmented DQN checkpoint. Each file also contains real FCFS,
+SRTF, and Round Robin timelines and final metrics for the same workload.
+
+Generate or refresh them from the repository root:
+
+```powershell
+.\.venv\Scripts\python.exe -m src.benchmark.export_traces --workload-ids 0 69 201
+```
+
+Use `--checkpoint PATH` for another model and `--output-dir PATH` for another
+destination. Upload a `workload_ID.json` file to the interactive demo and use
+its `decisions` for recorded playback. Label this **Recorded trained DQN
+inference**. Changing the workload requires a new matching trace.
+
+See [the JSON import contract](docs/dqn_trace_format.md) for the field names,
+observation layout, action masking, and idle-time handling. The export performs
+inference only and preserves the checkpoint and saved evaluation records.
 
 ## Setup
 
@@ -203,7 +273,10 @@ and fluctuating validation curves do not prove convergence.
 | `src/training/` | Standard DQN training and fixed validation |
 | `src/baselines/` | FCFS, SRTF, Round Robin, shared simulator runner |
 | `src/benchmark/` | Isolated greedy evaluation and validation benchmark |
+| `src/benchmark/export_traces.py` | Actual DQN transition and Q-value JSON export |
 | `tests/`, `src/env/tests/` | Implementation checks and demo regression |
+| `exports/dqn_traces/` | Importable recorded DQN examples |
+| `docs/dqn_trace_format.md` | JSON contract for interactive trace playback |
 | `runs/phase6_3b_controlled/` | Controlled histories and selected checkpoints |
 | `runs/phase6_4_final_test/` | Frozen workloads, metrics, intervals, verification |
 | `runs/phase6_5_final_visualizations/` | Evaluation figures and source manifest |
